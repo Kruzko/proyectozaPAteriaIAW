@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Zapato } from "src/modules/zapatos/entities/zapato.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Empleado {
@@ -13,4 +14,13 @@ export class Empleado {
 
     @Column('text')
     telefono: string;
+
+    @OneToMany(
+        () => Zapato,
+        (Zapato) => Zapato.id,
+        {cascade: false}
+    )
+    zapato?: Zapato[];
+
+    
 }
