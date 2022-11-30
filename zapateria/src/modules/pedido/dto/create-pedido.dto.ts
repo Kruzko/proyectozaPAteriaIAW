@@ -1,8 +1,8 @@
-import { IsDate, IsNumber } from "class-validator";
+import { IsDate, IsString } from "class-validator";
 
 export class CreatePedidoDto {
-    @IsNumber()
-    id: number;
+    @IsString()
+    id: string;
 
     @IsDate()
     fecha: Date;

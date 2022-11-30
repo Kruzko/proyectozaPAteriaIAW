@@ -1,8 +1,8 @@
 import { IsNumber, IsString } from "class-validator";
 
 export class CreateClienteDto {
-    @IsNumber()
-    id: number;
+    @IsString()
+    id: string;
 
     @IsString()
     nombre: string;

@@ -1,8 +1,8 @@
-import { IsNumber, IsString } from "class-validator";
+import { IsString } from "class-validator";
 
 export class CreateMaterialeDto {
-    @IsNumber()
-    id: number;
+    @IsString()
+    id: string;
 
     @IsString()
     descripcion: string;
