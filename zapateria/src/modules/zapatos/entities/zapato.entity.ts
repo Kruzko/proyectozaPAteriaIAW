@@ -1,5 +1,6 @@
 import { Empleado } from "src/modules/empleados/entities/empleado.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Pedido } from "src/modules/pedido/entities/pedido.entity";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Zapato {
@@ -16,4 +17,12 @@ export class Zapato {
         {cascade:false}
     )
     empleado?: Empleado;
+
+    //exportando idzapato
+    @OneToMany(
+        () => Pedido,
+        (Pedido) => Pedido.id,
+        {cascade: false }
+    )
+    pedido?: Pedido[];
 }
