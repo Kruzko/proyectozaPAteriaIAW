@@ -9,6 +9,7 @@ export class Zapato {
     @Column('text')
     tipo: string;
 
+    //id empleado
     @ManyToOne(
         () => Empleado,
         (Empleado) => Empleado.zapato,

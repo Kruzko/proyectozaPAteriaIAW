@@ -15,6 +15,7 @@ export class Empleado {
     @Column('text')
     telefono: string;
 
+    // pasamos id del empleado a zapato
     @OneToMany(
         () => Zapato,
         (Zapato) => Zapato.id,
