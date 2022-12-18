@@ -1,5 +1,5 @@
 import { Pedido } from "src/modules/pedido/entities/pedido.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Cliente {
@@ -22,4 +22,11 @@ export class Cliente {
         {cascade: false }
     )
     pedido?: Pedido[];
+    //relacion one to one de pedido a cliente
+    @OneToOne(
+        () => Cliente,
+        (Cliente) => Cliente.pedido,
+    )
+    @JoinColumn()
+    pedidos?: Cliente;
 }
