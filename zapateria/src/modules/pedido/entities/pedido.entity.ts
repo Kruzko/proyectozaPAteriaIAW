@@ -1,3 +1,5 @@
+import { Cliente } from "src/modules/clientes/entities/cliente.entity";
+import { Empleado } from "src/modules/empleados/entities/empleado.entity";
 import { Materiale } from "src/modules/materiales/entities/materiale.entity";
 import { Zapato } from "src/modules/zapatos/entities/zapato.entity";
 import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
@@ -26,6 +28,17 @@ export class Pedido {
     )
     materiales?: Materiale;
     //id cliente
-
+    @ManyToOne(
+        () => Cliente,
+        (Cliente) => Cliente.pedido,
+        {cascade: false}
+    )
+    cliente?: Cliente;
     //id empleado
+    @ManyToOne(
+        () => Empleado,
+        (Empleado) => Empleado.pedido,
+        {cascade: false}
+    )
+    empleado?: Empleado;
 }
