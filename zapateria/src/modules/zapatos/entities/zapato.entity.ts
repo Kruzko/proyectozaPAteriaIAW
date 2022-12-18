@@ -25,4 +25,12 @@ export class Zapato {
         {cascade: false }
     )
     pedido?: Pedido[];
+
+    //relacion many to one zapato a pedido
+    @ManyToOne(
+        () => Pedido,
+        (Pedido) => Pedido.zapatos,
+        {cascade: false}
+    )
+    pedidos?: Pedido;
 }

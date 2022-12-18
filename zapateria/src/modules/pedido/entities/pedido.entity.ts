@@ -2,7 +2,7 @@ import { Cliente } from "src/modules/clientes/entities/cliente.entity";
 import { Empleado } from "src/modules/empleados/entities/empleado.entity";
 import { Materiale } from "src/modules/materiales/entities/materiale.entity";
 import { Zapato } from "src/modules/zapatos/entities/zapato.entity";
-import { Column, Entity, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Pedido {
@@ -48,4 +48,12 @@ export class Pedido {
         {cascade: false}
     )
     pedido?: Pedido;
+
+    //relacion one to many pedido a zapato
+    @OneToMany(
+        () => Zapato,
+        (Zapato) => Zapato.id,
+        {cascade: false}
+    )
+    zapatos?: Zapato;
 }
