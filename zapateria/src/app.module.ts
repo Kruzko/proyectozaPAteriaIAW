@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm'
+import { AuthModule } from './modules/auth/auth.module';
 import { ClientesModule } from './modules/clientes/clientes.module';
 import { EmpleadosModule } from './modules/empleados/empleados.module';
 import { MaterialesModule } from './modules/materiales/materiales.module';
@@ -25,6 +26,7 @@ import { ZapatosModule } from './modules/zapatos/zapatos.module';
     MaterialesModule,
     ZapatosModule,
     PedidoModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
