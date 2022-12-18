@@ -1,15 +1,34 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateMaterialeDto } from './dto/create-materiale.dto';
 import { UpdateMaterialeDto } from './dto/update-materiale.dto';
+import { Materiale } from './entities/materiale.entity';
 
 @Injectable()
 export class MaterialesService {
-  create(createMaterialeDto: CreateMaterialeDto) {
-    return 'This action adds a new materiale';
+
+  constructor(
+    @InjectRepository(Materiale)
+    private readonly Materialesrepository: Repository<Materiale>
+  ){
+
   }
 
+  async create(createMaterialeDto: CreateMaterialeDto){
+    try{
+      const materiale = this.Materialesrepository.create(createMaterialeDto);
+      console.log(materiale);
+      await this.Materialesrepository.save(materiale);
+      return materiale;
+    } catch (error) {
+      console.log(error);
+      throw new InternalServerErrorException('Ayuda')
+    }
+  }
+  
   findAll() {
-    return `This action returns all materiales`;
+    return this.Materialesrepository.find({});
   }
 
   findOne(id: number) {

@@ -1,15 +1,34 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateEmpleadoDto } from './dto/create-empleado.dto';
 import { UpdateEmpleadoDto } from './dto/update-empleado.dto';
+import { Empleado } from './entities/empleado.entity';
 
 @Injectable()
 export class EmpleadosService {
-  create(createEmpleadoDto: CreateEmpleadoDto) {
-    return 'This action adds a new empleado';
+
+  constructor(
+    @InjectRepository(Empleado)
+    private readonly empleadorepository: Repository<Empleado>
+  ){
+
+  }
+
+  async create(createEmpleadoDto: CreateEmpleadoDto){
+    try{
+      const empleado = this.empleadorepository.create(createEmpleadoDto);
+      console.log(empleado);
+      await this.empleadorepository.save(empleado);
+      return empleado;
+    } catch (error) {
+      console.log(error);
+      throw new InternalServerErrorException('Ayuda')
+    }
   }
 
   findAll() {
-    return `This action returns all empleados`;
+    return this.empleadorepository.find({});
   }
 
   findOne(id: number) {

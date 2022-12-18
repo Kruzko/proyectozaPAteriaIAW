@@ -1,15 +1,34 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
+import { User } from './entities/user.entity';
 
 @Injectable()
 export class AuthService {
-  create(createAuthDto: CreateUserDto) {
-    return 'This action adds a new auth';
+  
+  constructor(
+    @InjectRepository(User)
+    private readonly Userrepository: Repository<User>
+  ){
+
+  }
+
+  async create(createUserDto: CreateUserDto){
+    try{
+      const user = this.Userrepository.create(createUserDto);
+      console.log(user);
+      await this.Userrepository.save(user);
+      return user;
+    } catch (error) {
+      console.log(error);
+      throw new InternalServerErrorException('Ayuda')
+    }
   }
 
   findAll() {
-    return `This action returns all auth`;
+    return this.Userrepository.find({});
   }
 
   findOne(id: number) {
