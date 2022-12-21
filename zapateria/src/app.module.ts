@@ -6,6 +6,7 @@ import { ClientesModule } from './modules/clientes/clientes.module';
 import { EmpleadosModule } from './modules/empleados/empleados.module';
 import { MaterialesModule } from './modules/materiales/materiales.module';
 import { PedidoModule } from './modules/pedido/pedido.module';
+import { SeedModule } from './modules/seed/seed.module';
 import { ZapatosModule } from './modules/zapatos/zapatos.module';
 
 @Module({
@@ -27,6 +28,7 @@ import { ZapatosModule } from './modules/zapatos/zapatos.module';
     ZapatosModule,
     PedidoModule,
     AuthModule,
+    SeedModule
   ],
   controllers: [],
   providers: [],
