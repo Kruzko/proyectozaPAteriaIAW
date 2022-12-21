@@ -2,7 +2,7 @@ import { IsString } from "class-validator";
 
 export class CreateMaterialeDto {
     @IsString()
-    nif: string;
+    cod: string;
 
     @IsString()
     descripcion: string;

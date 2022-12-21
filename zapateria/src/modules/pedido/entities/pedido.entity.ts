@@ -6,8 +6,8 @@ import { Column, Entity, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColu
 
 @Entity()
 export class Pedido {
-    @PrimaryColumn('uuid')
-    nif: string;
+    @PrimaryColumn()
+    cod: string;
 
     @Column('date')
     fecha: Date;
@@ -44,7 +44,7 @@ export class Pedido {
     //relacion one to one de pedido a cliente
     @OneToOne(
         (type) => Pedido,
-        (Pedido) => Pedido.nif,
+        (Pedido) => Pedido.cod,
         {cascade: false}
     )
     pedido?: Pedido;
@@ -52,7 +52,7 @@ export class Pedido {
     //relacion one to many pedido a zapato
     @OneToMany(
         () => Zapato,
-        (Zapato) => Zapato.nif,
+        (Zapato) => Zapato.cod,
         {cascade: false}
     )
     zapatos?: Zapato;

@@ -1,0 +1,36 @@
+[
+    {
+        "nif":"34789034",
+        "nombre": "maria",
+        "apellido": "rodrigez",
+        "telefono": "123456789"
+    },
+
+    {
+        "nif":"34778034",
+        "nombre": "pedro",
+        "apellido": "riviera",
+        "telefono": "123487589"
+    },
+
+    {
+        "nif":"34549034",
+        "nombre": "jose",
+        "apellido": "martinez",
+        "telefono": "123490189"
+    },
+
+    {
+        "nif":"34780934",
+        "nombre": "dani",
+        "apellido": "perez",
+        "telefono": "123977389"
+    },
+    
+    {
+        "nif":"46389034",
+        "nombre": "raul",
+        "apellido": "cueva",
+        "telefono": "123729179"
+    }
+]

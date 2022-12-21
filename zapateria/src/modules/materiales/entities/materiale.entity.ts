@@ -3,8 +3,8 @@ import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Materiale {
-    @PrimaryColumn('uuid')
-    nif: string;
+    @PrimaryColumn()
+    cod: string;
 
     @Column('text')
     descripcion: string;
@@ -13,7 +13,7 @@ export class Materiale {
 
     @OneToMany(
         () => Pedido,
-        (Pedido) => Pedido.nif,
+        (Pedido) => Pedido.cod,
         {cascade: false }
     )
     pedido?: Pedido[];

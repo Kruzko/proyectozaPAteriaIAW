@@ -4,8 +4,8 @@ import { Column, Entity, ManyToOne, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Zapato {
-    @PrimaryColumn('uuid')
-    nif: string;
+    @PrimaryColumn()
+    cod: string;
 
     @Column('text')
     tipo: string;
@@ -21,7 +21,7 @@ export class Zapato {
     //exportando idzapato
     @OneToMany(
         () => Pedido,
-        (Pedido) => Pedido.nif,
+        (Pedido) => Pedido.cod,
         {cascade: false }
     )
     pedido?: Pedido[];

@@ -2,7 +2,7 @@ import { IsString } from "class-validator";
 
 export class CreateZapatoDto {
     @IsString()
-    nif: string;
+    cod: string;
 
     @IsString()
     tipo: string;

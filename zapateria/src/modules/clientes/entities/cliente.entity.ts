@@ -5,7 +5,7 @@ import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryColumn, Primary
 
 @Entity()
 export class Cliente {
-    @PrimaryColumn('uuid')
+    @PrimaryColumn()
     nif: string;
 
     @Column('text')
@@ -20,7 +20,7 @@ export class Cliente {
     //exportar id a pedido
     @OneToMany(
         () => Pedido,
-        (Pedido) => Pedido.nif,
+        (Pedido) => Pedido.cod,
         {cascade: false }
     )
     pedido?: Pedido[];

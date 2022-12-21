@@ -1,5 +1,6 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { catchError } from 'rxjs';
 import { Repository } from 'typeorm';
 import { CreateClienteDto } from './dto/create-cliente.dto';
 import { UpdateClienteDto } from './dto/update-cliente.dto';
@@ -16,7 +17,6 @@ export class ClientesService {
   }
 
   async create(createClienteDto: CreateClienteDto){
-    console.log('cliente')
     try{
       const cliente = this.clienterepository.create(createClienteDto);
       console.log(cliente);
@@ -32,15 +32,34 @@ export class ClientesService {
     return this.clienterepository.find({});
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} cliente`;
+  findOne(nif: string) {
+    return this.clienterepository.findOne({
+      where: {
+        nif
+      }
+    });
   }
 
-  update(id: number, updateClienteDto: UpdateClienteDto) {
-    return `This action updates a #${id} cliente`;
+  update(nif: string, updateClienteDto: UpdateClienteDto) {
+    return `This action updates a #${nif} cliente`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} cliente`;
+  async deleteAllClients(){
+    const query = this.clienterepository.createQueryBuilder('cliente');
+    try{
+      return await query
+      .delete()
+      .where({})
+      .execute()
+    }catch(error){
+      this.handleDBEerrors(error)
+    }
+  }
+  private handleDBEerrors (error: any): never{
+    throw new BadRequestException(error.detail)
+  }
+
+  remove(nif: string) {
+    return `This action removes a #${nif} cliente`;
   }
 }

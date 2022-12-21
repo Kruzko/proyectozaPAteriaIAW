@@ -2,7 +2,7 @@ import { IsDate, IsString } from "class-validator";
 
 export class CreatePedidoDto {
     @IsString()
-    nif: string;
+    cod: string;
 
     @IsDate()
     fecha: Date;

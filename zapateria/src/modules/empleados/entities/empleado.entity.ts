@@ -4,7 +4,7 @@ import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Empleado {
-    @PrimaryColumn('uuid')
+    @PrimaryColumn()
     nif: string;
 
     @Column('text')
@@ -19,7 +19,7 @@ export class Empleado {
     // pasamos id del empleado a zapato
     @OneToMany(
         () => Zapato,
-        (Zapato) => Zapato.nif,
+        (Zapato) => Zapato.cod,
         {cascade: false}
     )
     zapato?: Zapato[];
@@ -27,7 +27,7 @@ export class Empleado {
     //exportamos id empleado a pedido
     @OneToMany(
         () => Pedido,
-        (Pedido) => Pedido.nif,
+        (Pedido) => Pedido.cod,
         {cascade: false }
     )
     pedido?: Pedido[];

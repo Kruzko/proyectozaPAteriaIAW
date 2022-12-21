@@ -3,7 +3,7 @@ import { IsEmail, IsString, Matches, MaxLength, MinLength } from "class-validato
 export class CreateUserDto {
 
     @IsString()
-    nif: string;
+    cod: string;
     
     @IsString()
     @IsEmail()
