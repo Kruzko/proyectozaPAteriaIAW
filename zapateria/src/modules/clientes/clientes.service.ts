@@ -16,6 +16,7 @@ export class ClientesService {
   }
 
   async create(createClienteDto: CreateClienteDto){
+    console.log('cliente')
     try{
       const cliente = this.clienterepository.create(createClienteDto);
       console.log(cliente);

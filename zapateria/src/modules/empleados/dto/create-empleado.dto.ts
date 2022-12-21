@@ -2,7 +2,7 @@ import { IsNumber, IsString } from "class-validator";
 
 export class CreateEmpleadoDto {
     @IsString()
-    id: string;
+    nif: string;
 
     @IsString()
     nombre: string;

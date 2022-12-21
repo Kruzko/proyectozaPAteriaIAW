@@ -1,11 +1,11 @@
 import { Empleado } from "src/modules/empleados/entities/empleado.entity";
 import { Pedido } from "src/modules/pedido/entities/pedido.entity";
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Zapato {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+    @PrimaryColumn('uuid')
+    nif: string;
 
     @Column('text')
     tipo: string;
@@ -21,7 +21,7 @@ export class Zapato {
     //exportando idzapato
     @OneToMany(
         () => Pedido,
-        (Pedido) => Pedido.id,
+        (Pedido) => Pedido.nif,
         {cascade: false }
     )
     pedido?: Pedido[];

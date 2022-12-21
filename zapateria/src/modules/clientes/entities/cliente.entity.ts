@@ -1,10 +1,12 @@
+import { type } from "os";
+import { User } from "src/modules/auth/entities/user.entity";
 import { Pedido } from "src/modules/pedido/entities/pedido.entity";
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Cliente {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+    @PrimaryColumn('uuid')
+    nif: string;
 
     @Column('text')
     nombre: string;
@@ -18,7 +20,7 @@ export class Cliente {
     //exportar id a pedido
     @OneToMany(
         () => Pedido,
-        (Pedido) => Pedido.id,
+        (Pedido) => Pedido.nif,
         {cascade: false }
     )
     pedido?: Pedido[];
@@ -29,4 +31,12 @@ export class Cliente {
     )
     @JoinColumn()
     pedidos?: Cliente;
+
+    //relacion one to one con auth o user
+    @OneToOne(
+        (type) => User,
+        (User) => User.cliente,
+        {cascade: false}
+    )
+    perfil?: User;
 }

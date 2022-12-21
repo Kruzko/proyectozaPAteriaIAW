@@ -2,12 +2,12 @@ import { Cliente } from "src/modules/clientes/entities/cliente.entity";
 import { Empleado } from "src/modules/empleados/entities/empleado.entity";
 import { Materiale } from "src/modules/materiales/entities/materiale.entity";
 import { Zapato } from "src/modules/zapatos/entities/zapato.entity";
-import { Column, Entity, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Pedido {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+    @PrimaryColumn('uuid')
+    nif: string;
 
     @Column('date')
     fecha: Date;
@@ -44,7 +44,7 @@ export class Pedido {
     //relacion one to one de pedido a cliente
     @OneToOne(
         (type) => Pedido,
-        (Pedido) => Pedido.id,
+        (Pedido) => Pedido.nif,
         {cascade: false}
     )
     pedido?: Pedido;
@@ -52,7 +52,7 @@ export class Pedido {
     //relacion one to many pedido a zapato
     @OneToMany(
         () => Zapato,
-        (Zapato) => Zapato.id,
+        (Zapato) => Zapato.nif,
         {cascade: false}
     )
     zapatos?: Zapato;
