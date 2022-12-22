@@ -11,13 +11,17 @@ import datamateriales from '../seed/data/materiales.json'
 import { Zapato } from '../zapatos/entities/zapato.entity';
 import { ZapatosService } from '../zapatos/zapatos.service';
 import dataZapatos from '../seed/data/zapatos.json'
+import dataUsuarios from '../seed/data/usuarios.json'
+import { AuthService } from '../auth/auth.service';
+import { User } from '../auth/entities/user.entity';
 @Injectable()
 export class SeedService {
   constructor(
     private readonly clientesService: ClientesService,
     private readonly empleadosService: EmpleadosService,
     private readonly materialesService: MaterialesService,
-    private readonly zapatoService: ZapatosService
+    private readonly zapatoService: ZapatosService,
+    private readonly usuariosService: AuthService
   ){}
 
   async runData(){
@@ -33,6 +37,9 @@ export class SeedService {
 
     await this.zapatoService.deleteAllzapatos();
     await this.loadzapatos();
+
+    await this.usuariosService.deleteAllusuarios();
+    await this.loadusuarios();
 
   }
 
@@ -64,6 +71,14 @@ export class SeedService {
     const insertPromises = [];
     dataZapatos.forEach( Zapato => {
       insertPromises.push(this.zapatoService.create(Zapato))
+    });
+    await Promise.all(insertPromises)
+  }
+
+  private async loadusuarios() {
+    const insertPromises = [];
+    dataUsuarios.forEach( User => {
+      insertPromises.push(this.usuariosService.create(User))
     });
     await Promise.all(insertPromises)
   }
