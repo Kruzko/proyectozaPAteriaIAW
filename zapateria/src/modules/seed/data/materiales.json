@@ -1,0 +1,21 @@
+[
+    {
+        "cod": "12345678",
+        "descripcion": "suela"
+    },
+
+    {
+        "cod": "22345678",
+        "descripcion": "orma"
+    },
+
+    {
+        "cod": "32345678",
+        "descripcion": "empeine"
+    },
+
+    {
+        "cod": "42345678",
+        "descripcion": "forro"
+    }
+]

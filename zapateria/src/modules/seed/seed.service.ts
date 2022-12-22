@@ -3,13 +3,17 @@ import { ClientesService } from '../clientes/clientes.service';
 import { Cliente } from '../clientes/entities/cliente.entity';
 import { EmpleadosService } from '../empleados/empleados.service';
 import { Empleado } from '../empleados/entities/empleado.entity';
+import { Materiale } from '../materiales/entities/materiale.entity';
+import { MaterialesService } from '../materiales/materiales.service';
 import dataClientes from '../seed/data/clientes.json'
 import dataEmpleados from '../seed/data/empleados.json'
+import datamateriales from '../seed/data/materiales.json'
 @Injectable()
 export class SeedService {
   constructor(
     private readonly clientesService: ClientesService,
-    private readonly empleadosService: EmpleadosService
+    private readonly empleadosService: EmpleadosService,
+    private readonly materialesService: MaterialesService
   ){}
 
   async runData(){
@@ -19,6 +23,9 @@ export class SeedService {
 
     await this.empleadosService.deleteAllempleados();
     await this.loadempleados();
+
+    await this.materialesService.deleteAllmateriales();
+    await this.loadmateriales();
 
   }
 
@@ -37,5 +44,13 @@ export class SeedService {
     });
     await Promise.all(insertPromises)
   }
-  
+
+  private async loadmateriales() {
+    const insertPromises = [];
+    datamateriales.forEach( Materiale => {
+      insertPromises.push(this.materialesService.create(Materiale))
+    });
+    await Promise.all(insertPromises)
+  }
+
 }
