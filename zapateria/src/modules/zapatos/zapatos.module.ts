@@ -10,5 +10,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [
     TypeOrmModule.forFeature([ Zapato ])
   ],
+  exports: [ZapatosService]
 })
 export class ZapatosModule {}

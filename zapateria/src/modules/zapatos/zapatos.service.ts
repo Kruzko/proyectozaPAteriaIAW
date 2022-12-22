@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateZapatoDto } from './dto/create-zapato.dto';
@@ -42,4 +42,20 @@ export class ZapatosService {
   remove(id: number) {
     return `This action removes a #${id} zapato`;
   }
+
+  async deleteAllzapatos(){
+    const query = this.Zapatorepository.createQueryBuilder('zapato');
+    try{
+      return await query
+      .delete()
+      .where({})
+      .execute()
+    }catch(error){
+      this.handleDBEerrors(error)
+    }
+  }
+  private handleDBEerrors (error: any): never{
+    throw new BadRequestException(error.detail)
+  }
+  
 }

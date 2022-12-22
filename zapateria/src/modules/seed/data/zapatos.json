@@ -1,0 +1,21 @@
+[
+    {
+        "cod":"13345678",
+        "tipo": "deportivo"
+    },
+
+    {
+        "cod":"14345678",
+        "tipo": "zueco"
+    },
+
+    {
+        "cod":"15345678",
+        "tipo": "alpargata"
+    },
+
+    {
+        "cod":"16345678",
+        "tipo": "botas"
+    }
+]

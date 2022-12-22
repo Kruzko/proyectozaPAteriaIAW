@@ -8,12 +8,16 @@ import { MaterialesService } from '../materiales/materiales.service';
 import dataClientes from '../seed/data/clientes.json'
 import dataEmpleados from '../seed/data/empleados.json'
 import datamateriales from '../seed/data/materiales.json'
+import { Zapato } from '../zapatos/entities/zapato.entity';
+import { ZapatosService } from '../zapatos/zapatos.service';
+import dataZapatos from '../seed/data/zapatos.json'
 @Injectable()
 export class SeedService {
   constructor(
     private readonly clientesService: ClientesService,
     private readonly empleadosService: EmpleadosService,
-    private readonly materialesService: MaterialesService
+    private readonly materialesService: MaterialesService,
+    private readonly zapatoService: ZapatosService
   ){}
 
   async runData(){
@@ -26,6 +30,9 @@ export class SeedService {
 
     await this.materialesService.deleteAllmateriales();
     await this.loadmateriales();
+
+    await this.zapatoService.deleteAllzapatos();
+    await this.loadzapatos();
 
   }
 
@@ -49,6 +56,14 @@ export class SeedService {
     const insertPromises = [];
     datamateriales.forEach( Materiale => {
       insertPromises.push(this.materialesService.create(Materiale))
+    });
+    await Promise.all(insertPromises)
+  }
+
+  private async loadzapatos() {
+    const insertPromises = [];
+    dataZapatos.forEach( Zapato => {
+      insertPromises.push(this.zapatoService.create(Zapato))
     });
     await Promise.all(insertPromises)
   }
