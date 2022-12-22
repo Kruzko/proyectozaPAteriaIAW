@@ -10,5 +10,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [
     TypeOrmModule.forFeature([ Empleado ])
   ],
+  exports: [EmpleadosService]
 })
 export class EmpleadosModule {}

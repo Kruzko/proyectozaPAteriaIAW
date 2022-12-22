@@ -17,18 +17,19 @@ export class EmpleadosController {
     return this.empleadosService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.empleadosService.findOne(+id);
+  @Get(':nif')
+  findOne(@Param('nif') nif: string) {
+    return this.empleadosService.findOne(nif);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateEmpleadoDto: UpdateEmpleadoDto) {
-    return this.empleadosService.update(+id, updateEmpleadoDto);
+  @Patch(':nif')
+  update(@Param('nif') nif: string, @Body() updateEmpleadoDto: UpdateEmpleadoDto) {
+    return this.empleadosService.update(nif, updateEmpleadoDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.empleadosService.remove(+id);
+  @Delete(':nif')
+  remove(@Param('nif') nif: string) {
+    return this.empleadosService.remove(nif);
   }
+  
 }

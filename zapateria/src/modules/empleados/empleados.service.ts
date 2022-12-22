@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateEmpleadoDto } from './dto/create-empleado.dto';
@@ -31,15 +31,31 @@ export class EmpleadosService {
     return this.empleadorepository.find({});
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} empleado`;
+  findOne(nif: string) {
+    return `This action returns a #${nif} empleado`;
   }
 
-  update(id: number, updateEmpleadoDto: UpdateEmpleadoDto) {
-    return `This action updates a #${id} empleado`;
+  update(nif: string, updateEmpleadoDto: UpdateEmpleadoDto) {
+    return `This action updates a #${nif} empleado`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} empleado`;
+  remove(nif: string) {
+    return `This action removes a #${nif} empleado`;
   }
+
+  async deleteAllempleados(){
+    const query = this.empleadorepository.createQueryBuilder('empleado');
+    try{
+      return await query
+      .delete()
+      .where({})
+      .execute()
+    }catch(error){
+      this.handleDBEerrors(error)
+    }
+  }
+  private handleDBEerrors (error: any): never{
+    throw new BadRequestException(error.detail)
+  }
+  
 }

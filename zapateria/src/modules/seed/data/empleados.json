@@ -1,0 +1,29 @@
+[
+    {
+        "nif": "34789875",
+        "nombre": "pedro",
+        "apellido": "benitez",
+        "telefono": "124357639"
+    },
+
+    {
+        "nif": "34789807",
+        "nombre": "marta",
+        "apellido": "gonzalez",
+        "telefono": "124129889"
+    },
+
+    {
+        "nif": "34789856",
+        "nombre": "mario",
+        "apellido": "perez",
+        "telefono": "124874089"
+    },
+
+    {
+        "nif": "34784569",
+        "nombre": "paula",
+        "apellido": "rodrigez",
+        "telefono": "124102989"
+    }
+]
