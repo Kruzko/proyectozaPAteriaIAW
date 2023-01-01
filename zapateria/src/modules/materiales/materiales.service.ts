@@ -31,8 +31,10 @@ export class MaterialesService {
     return this.Materialesrepository.find({});
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} materiale`;
+  findOne(cod: string) {
+    return this.Materialesrepository.findOne({
+      where: {cod}
+    });
   }
 
   update(id: number, updateMaterialeDto: UpdateMaterialeDto) {

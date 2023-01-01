@@ -32,7 +32,9 @@ export class EmpleadosService {
   }
 
   findOne(nif: string) {
-    return `This action returns a #${nif} empleado`;
+    return this.empleadorepository.findOne({
+      where: {nif}
+    });
   }
 
   update(nif: string, updateEmpleadoDto: UpdateEmpleadoDto) {

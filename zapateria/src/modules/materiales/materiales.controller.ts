@@ -19,7 +19,7 @@ export class MaterialesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.materialesService.findOne(+id);
+    return this.materialesService.findOne(id);
   }
 
   @Patch(':id')
