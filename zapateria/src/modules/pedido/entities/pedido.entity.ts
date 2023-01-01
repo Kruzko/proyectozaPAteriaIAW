@@ -9,8 +9,8 @@ export class Pedido {
     @PrimaryColumn()
     cod: string;
 
-    @Column('date')
-    fecha: Date;
+    @Column('text')
+    fecha: string;
 
     //id zapato
     @ManyToOne(
