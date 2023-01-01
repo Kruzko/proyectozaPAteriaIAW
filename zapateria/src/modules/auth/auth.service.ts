@@ -31,15 +31,17 @@ export class AuthService {
     return this.Userrepository.find({});
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
+  findOne(cod: string) {
+    return this.Userrepository.findOne({
+      where: {cod}
+    });
   }
 
-  update(id: number, updateAuthDto: UpdateAuthDto) {
+  update(id: string, updateAuthDto: UpdateAuthDto) {
     return `This action updates a #${id} auth`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} auth`;
   }
 
