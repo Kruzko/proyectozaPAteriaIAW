@@ -31,8 +31,10 @@ export class ZapatosService {
     return this.Zapatorepository.find({});
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} zapato`;
+  findOne(cod: string) {
+    return this.Zapatorepository.findOne({
+      where: {cod}
+    });
   }
 
   update(id: number, updateZapatoDto: UpdateZapatoDto) {

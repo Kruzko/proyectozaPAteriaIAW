@@ -19,7 +19,7 @@ export class ZapatosController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.zapatosService.findOne(+id);
+    return this.zapatosService.findOne(id);
   }
 
   @Patch(':id')
