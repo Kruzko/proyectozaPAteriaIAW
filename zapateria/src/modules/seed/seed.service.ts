@@ -12,8 +12,11 @@ import { Zapato } from '../zapatos/entities/zapato.entity';
 import { ZapatosService } from '../zapatos/zapatos.service';
 import dataZapatos from '../seed/data/zapatos.json'
 import dataUsuarios from '../seed/data/usuarios.json'
+import dataPedidos from '../seed/data/pedidos.json'
 import { AuthService } from '../auth/auth.service';
 import { User } from '../auth/entities/user.entity';
+import { Pedido } from '../pedido/entities/pedido.entity';
+import { PedidoService } from '../pedido/pedido.service';
 @Injectable()
 export class SeedService {
   constructor(
@@ -21,7 +24,8 @@ export class SeedService {
     private readonly empleadosService: EmpleadosService,
     private readonly materialesService: MaterialesService,
     private readonly zapatoService: ZapatosService,
-    private readonly usuariosService: AuthService
+    private readonly usuariosService: AuthService,
+    private readonly pedidoservice: PedidoService
   ){}
 
   async runData(){
@@ -40,6 +44,9 @@ export class SeedService {
 
     await this.usuariosService.deleteAllusuarios();
     await this.loadusuarios();
+
+    await this.pedidoservice.deleteAllpedidos;
+    await this.loadpedidos()
 
   }
 
@@ -79,6 +86,14 @@ export class SeedService {
     const insertPromises = [];
     dataUsuarios.forEach( User => {
       insertPromises.push(this.usuariosService.create(User))
+    });
+    await Promise.all(insertPromises)
+  }
+
+  private async loadpedidos() {
+    const insertPromises = [];
+    dataPedidos.forEach( Pedido => {
+      insertPromises.push(this.pedidoservice.create(Pedido))
     });
     await Promise.all(insertPromises)
   }

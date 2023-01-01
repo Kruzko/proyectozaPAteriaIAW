@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreatePedidoDto } from './dto/create-pedido.dto';
@@ -43,5 +43,20 @@ export class PedidoService {
 
   remove(id: number) {
     return `This action removes a #${id} pedido`;
+  }
+
+  async deleteAllpedidos(){
+    const query = this.Pedidorepository.createQueryBuilder('pedido');
+    try{
+      return await query
+      .delete()
+      .where({})
+      .execute()
+    }catch(error){
+      this.handleDBEerrors(error)
+    }
+  }
+  private handleDBEerrors (error: any): never{
+    throw new BadRequestException(error.detail)
   }
 }

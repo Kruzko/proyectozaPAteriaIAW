@@ -6,10 +6,11 @@ import { ZapatosModule } from '../zapatos/zapatos.module';
 import { EmpleadosModule } from '../empleados/empleados.module';
 import { MaterialesModule } from '../materiales/materiales.module';
 import { AuthModule } from '../auth/auth.module';
+import { PedidoModule } from '../pedido/pedido.module';
 
 @Module({
   controllers: [SeedController],
   providers: [SeedService],
-  imports: [ClientesModule,ZapatosModule,EmpleadosModule,MaterialesModule,AuthModule]
+  imports: [ClientesModule,ZapatosModule,EmpleadosModule,MaterialesModule,AuthModule,PedidoModule]
 })
 export class SeedModule {}
