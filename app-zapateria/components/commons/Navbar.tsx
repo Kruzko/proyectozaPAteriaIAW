@@ -24,22 +24,22 @@ export const NavBar = () => {
                  sx= {{ display: { xs: 'none', sm: 'flex' }}} >
                     
                 <Link href='/clientes' passHref component={ NextLink }>
-                    <Button sx={{ color: 'white'}}>Libros</Button>
+                    <Button sx={{ color: 'white'}}>Clientes</Button>
                 </Link>
                 <Link href='/auth_user' component={ NextLink }>
-                    <Button sx={{ color: 'white'}}>Clientes</Button>
+                    <Button sx={{ color: 'white'}}>Usuarios</Button>
                 </Link>
                 <Link href='/empleados' component={ NextLink }>
-                    <Button sx={{ color: 'white'}}>Categorias</Button>
+                    <Button sx={{ color: 'white'}}>Empleados</Button>
                 </Link>
                 <Link href='/materiales' component={ NextLink }>
-                    <Button sx={{ color: 'white'}}>Editores</Button>
+                    <Button sx={{ color: 'white'}}>Materiales</Button>
                 </Link>
-                <Link href='/pedidos' component={ NextLink }>
-                    <Button sx={{ color: 'white'}}>Clientes</Button>
+                <Link href='/pedido' component={ NextLink }>
+                    <Button sx={{ color: 'white'}}>Pedidos</Button>
                 </Link>
                 <Link href='/zapatos' component={ NextLink }>
-                    <Button sx={{ color: 'white'}}>Clientes</Button>
+                    <Button sx={{ color: 'white'}}>Zapatos</Button>
                 </Link>
             </Box>
             <Box flex={1} />
