@@ -26,7 +26,7 @@ export const NavBar = () => {
                 <Link href='/clientes' passHref component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Clientes</Button>
                 </Link>
-                <Link href='/user' component={ NextLink }>
+                <Link href='/auth_user' component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Usuarios</Button>
                 </Link>
                 <Link href='/empleados' component={ NextLink }>
@@ -44,10 +44,9 @@ export const NavBar = () => {
             </Box>
             <Box flex={1} />
             <Box>
-                <Typography>User: usuario</Typography>
-                <Link href='/auth/login' passHref component={ NextLink }>
-                    <Button sx={{ color: 'white'}}>Login</Button>
-                </Link>
+            <Link href='/auth/login' passHref component={ NextLink }>
+                <Button sx={{ color: 'white'}}>Login</Button>
+            </Link>
             </Box>
         </Toolbar>
     </AppBar>

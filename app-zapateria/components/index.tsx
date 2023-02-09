@@ -1,1 +1,1 @@
-export * from './Mundo'
+export * from './mundo'
