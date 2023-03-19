@@ -17,19 +17,19 @@ const AUTH_INITIAL_STATE: AuthState = {
 export const AuthProvider:FC = ({ children }) => {
     const [ state, dispatch ] = useReducer( authReducer, AUTH_INITIAL_STATE );
     
-    // const loginUser = async (email: string, password: string):Promise<boolean> => {
-    //     try {
-    //         const { data } = await libreriaApi.post('/auth/login', { email, password });
-    //         console.log(data);
-    //         const { token, user } = data;
-    //         console.log(user);
-    //         Cookies.set('token', token);
-    //         dispatch({ type: '[Auth] - Login', payload: user });
-    //         return true;
-    //     } catch (error) { //credenciales falsas
-    //         return false;
-    //     }
-    // } 
+     const loginUser = async (email: string, password: string):Promise<boolean> => {
+         try {
+             const { data } = await libreriaApi.post('/auth/login', { email, password });
+             console.log(data);
+             const { token, user } = data;
+             console.log(user);
+             Cookies.set('token', token);
+             dispatch({ type: '[Auth] - Login', payload: user });
+             return true;
+         } catch (error) { //credenciales falsas
+             return false;
+         }
+     } 
 
     const registerUser = async (email: string, password: string, fullName: string ):Promise<IRespuestaApiAuth>=> {
         try {
