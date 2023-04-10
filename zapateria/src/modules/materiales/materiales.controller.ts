@@ -27,8 +27,13 @@ export class MaterialesController {
     return this.materialesService.update(+id, updateMaterialeDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.materialesService.remove(+id);
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.materialesService.remove(+id);
+  // }
+
+  @Delete()
+  deleteAllmateriales() {
+    return this.materialesService.deleteAllmateriales();
   }
 }

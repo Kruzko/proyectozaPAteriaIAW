@@ -27,8 +27,13 @@ export class PedidoController {
     return this.pedidoService.update(+id, updatePedidoDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.pedidoService.remove(+id);
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.pedidoService.remove(+id);
+  // }
+
+  @Delete()
+  deleteAllpedidos() {
+    return this.pedidoService.deleteAllpedidos();
   }
 }
