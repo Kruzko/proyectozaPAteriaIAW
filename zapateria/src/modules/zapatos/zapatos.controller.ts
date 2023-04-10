@@ -32,8 +32,8 @@ export class ZapatosController {
   //   return this.zapatosService.remove(+id);
   // }
 
-  @Delete(':cod')
-  deleteAllzapatos(@Param('cod') cod:string) {
-    return this.zapatosService.deleteAllzapatos;
+  @Delete()
+  deleteAllzapatos() {
+    return this.zapatosService.deleteAllzapatos();
   }
 }
