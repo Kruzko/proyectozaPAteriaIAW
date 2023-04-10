@@ -27,8 +27,13 @@ export class ZapatosController {
     return this.zapatosService.update(+id, updateZapatoDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.zapatosService.remove(+id);
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.zapatosService.remove(+id);
+  // }
+
+  @Delete(':cod')
+  deleteAllzapatos(@Param('cod') cod:string) {
+    return this.zapatosService.deleteAllzapatos;
   }
 }
