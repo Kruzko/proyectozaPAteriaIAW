@@ -27,10 +27,10 @@ export class EmpleadosController {
     return this.empleadosService.update(nif, updateEmpleadoDto);
   }
 
-  // @Delete(':nif')
-  // remove(@Param('nif') nif: string) {
-  //   return this.empleadosService.remove(nif);
-  // }
+  @Delete(':nif')
+  deleteOne(@Param('nif') nif: string) {
+    return this.empleadosService.deleteOne(nif);
+   }
 
   @Delete()
   deleteAllempleados() {

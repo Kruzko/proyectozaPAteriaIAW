@@ -32,6 +32,11 @@ export class PedidoController {
   //   return this.pedidoService.remove(+id);
   // }
 
+  @Delete(':id')
+  deleteOne(@Param('id') id: string) {
+    return this.pedidoService.deleteOne(id);
+   }
+
   @Delete()
   deleteAllpedidos() {
     return this.pedidoService.deleteAllpedidos();

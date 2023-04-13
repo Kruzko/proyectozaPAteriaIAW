@@ -27,10 +27,10 @@ export class MaterialesController {
     return this.materialesService.update(+id, updateMaterialeDto);
   }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.materialesService.remove(+id);
-  // }
+  @Delete(':id')
+  deleteOne(@Param('id') id: string) {
+    return this.materialesService.deleteOne(id);
+   }
 
   @Delete()
   deleteAllmateriales() {

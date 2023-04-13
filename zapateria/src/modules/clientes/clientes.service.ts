@@ -59,7 +59,10 @@ export class ClientesService {
     throw new BadRequestException(error.detail)
   }
 
-  remove(nif: string) {
-    return `This action removes a #${nif} cliente`;
+  async deleteOne(nif: string) {
+    return await this.clienterepository.delete({
+      nif
+    });
+    // return `This action removes a #${cod} zapato`;
   }
 }

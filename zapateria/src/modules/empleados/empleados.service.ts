@@ -41,10 +41,12 @@ export class EmpleadosService {
     return `This action updates a #${nif} empleado`;
   }
 
-  remove(nif: string) {
-    return `This action removes a #${nif} empleado`;
+  async deleteOne(nif: string) {
+    return await this.empleadorepository.delete({
+      nif
+    });
+    // return `This action removes a #${cod} zapato`;
   }
-
   async deleteAllempleados(){
     const query = this.empleadorepository.createQueryBuilder('empleado');
     try{

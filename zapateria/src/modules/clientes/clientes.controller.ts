@@ -31,9 +31,9 @@ export class ClientesController {
   }
 
   @Delete(':nif')
-  remove(@Param('nif') nif: string) {
-    return this.clientesService.remove(nif);
-  }
+  deleteOne(@Param('nif') nif: string) {
+    return this.clientesService.deleteOne(nif);
+   }
 
   @Delete()
   deleteAllClients() {

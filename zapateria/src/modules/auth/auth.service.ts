@@ -109,8 +109,11 @@ export class AuthService {
     return `This action updates a #${id} auth`;
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} auth`;
+  async deleteOne(cod: string) {
+    return await this.Userrepository.delete({
+      cod
+    });
+    // return `This action removes a #${cod} zapato`;
   }
 
   async deleteAllusuarios(){

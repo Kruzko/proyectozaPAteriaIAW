@@ -41,8 +41,11 @@ export class PedidoService {
     return `This action updates a #${id} pedido`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} pedido`;
+  async deleteOne(cod: string) {
+    return await this.Pedidorepository.delete({
+      cod
+    });
+    // return `This action removes a #${cod} zapato`;
   }
 
   async deleteAllpedidos(){

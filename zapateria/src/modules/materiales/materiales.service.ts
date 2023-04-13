@@ -41,8 +41,11 @@ export class MaterialesService {
     return `This action updates a #${id} materiale`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} materiale`;
+  async deleteOne(cod: string) {
+    return await this.Materialesrepository.delete({
+      cod
+    });
+    // return `This action removes a #${cod} zapato`;
   }
 
   async deleteAllmateriales(){
