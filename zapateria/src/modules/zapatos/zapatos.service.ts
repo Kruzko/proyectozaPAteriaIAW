@@ -41,8 +41,11 @@ export class ZapatosService {
     return `This action updates a #${id} zapato`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} zapato`;
+  remove(cod: string) {
+    return this.Zapatorepository.findOne({
+      where: {cod}
+    });
+    // return `This action removes a #${cod} zapato`;
   }
 
   async deleteAllzapatos(){
