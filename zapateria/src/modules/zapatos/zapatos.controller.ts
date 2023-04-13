@@ -28,8 +28,8 @@ export class ZapatosController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.zapatosService.remove(id);
+  deleteOne(@Param('id') id: string) {
+    return this.zapatosService.deleteOne(id);
    }
 
   @Delete()

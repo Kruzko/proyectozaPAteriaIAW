@@ -41,7 +41,7 @@ export class ZapatosService {
     return `This action updates a #${id} zapato`;
   }
 
-  async remove(cod: string) {
+  async deleteOne(cod: string) {
     return await this.Zapatorepository.delete({
       cod
     });
