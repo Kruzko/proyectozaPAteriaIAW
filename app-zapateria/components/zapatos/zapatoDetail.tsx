@@ -32,31 +32,22 @@ export const LibroDetail:FC<Props> = ({zapato}) => {
         <Box display='flex' flexDirection='row'  >
           <Image
             loader={myLoader}
-            src= {libro.thumbnailUrl}
-            alt={libro.title}
+            src= {zapato.thumbnailUrl}
+            alt={zapato.nombre}
             width={300}
             height={300}
           />
           <Box display='flex' flexDirection='column' sx={{  width: '40%', p:3}} >
             <Typography variant='h5' component='h5'
                         sx={{ fontSize: '20px', textAlign: 'center', mb: '10px'}}
-            > { libro.title}</Typography>
+            > { zapato.tipo}</Typography>
             <Box display='flex' flexDirection='row' >
-              <Typography sx={{width: '40%'}}  variant='subtitle1' > ISBN </Typography>
-              <Typography sx={{width: '60%'}}> {libro.isbn} </Typography>
-            </Box>
-            <Box display='flex' flexDirection='row'>
-              <Typography sx={{width: '40%'}}  variant='subtitle1' > Paginas </Typography>
-              <Typography sx={{width: '60%'}}> {libro.pageCount} </Typography>
-              { user?.email}
-            </Box>
-            <Box display='flex' flexDirection='row'>
-              <Typography sx={{width: '40%'}}  variant='subtitle1' > Publicación </Typography>
-              <Typography sx={{width: '60%'}}> {libro.publishedDate} </Typography>
+              <Typography sx={{width: '40%'}}  variant='subtitle1' > COD </Typography>
+              <Typography sx={{width: '60%'}}> {zapato.cod} </Typography>
             </Box>
           </Box>
           <Box  sx={{ display:'flex', flexDirection:'column', justifyContent:'space-around', alignItems:'center'}}>
-            <Typography variant='h4' component='h4'> { libro.precio } </Typography>
+            <Typography variant='h4' component='h4'> { zapato.precio } </Typography>
             <Button variant="contained" endIcon={<ShoppingCartIcon />}>
               Añadir a la cesta
             </Button>
@@ -74,9 +65,6 @@ export const LibroDetail:FC<Props> = ({zapato}) => {
                 <Tab label="Estado" value="3" />
               </TabList>
             </Box>
-            <TabPanel value="1">{zapato.longDescription}</TabPanel>
-            <TabPanel value="2">{zapato.shortDescription}</TabPanel>
-            <TabPanel value="3">{zapato.status}</TabPanel>
           </TabContext>
         </Box>
         {/* <Box sx={{ width: '100%' }}>

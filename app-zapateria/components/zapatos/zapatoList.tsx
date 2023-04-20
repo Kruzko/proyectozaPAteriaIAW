@@ -11,8 +11,10 @@ interface Props {
 export const LibrosList:FC<Props> = ({zapatos}) => {
   
   const colums: GridColDef[] = [
+        { field: 'nombre', headerName: 'Nombre', width: 130},
         { field: 'cod', headerName: 'COD', width: 130},
         { field: 'tipo', headerName:'Tipo', width: 300 },
+        { field: 'precio', headerName:'Precio', width: 300 },
         { field: 'opciones',
           headerName: 'Acciones',
           description: 'Muestra información si la orden está pagada o no',

@@ -8,6 +8,9 @@
 export interface IZapato {
     cod:       string;
     tipo:    string;
+    precio: number;
+    thumbnailUrl: string;
+    nombre: string;
 }
 
 // export interface IClientes: Cliente[];
