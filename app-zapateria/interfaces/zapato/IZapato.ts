@@ -4,9 +4,10 @@
 
 
 
-export interface IPedido {
+
+export interface IZapato {
     cod:       string;
-    fecha:    string;
+    tipo:    string;
 }
 
 // export interface IClientes: Cliente[];
