@@ -16,7 +16,7 @@ const myLoader = ({src, width, quality}) =>{
   // return `https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/`
   return `${src}?s=${width}`
 }
-export const LibroDetail:FC<Props> = ({zapato}) => {
+export const ZapatoDetail:FC<Props> = ({zapato}) => {
     console.log(zapato);
     const [value, setValue] = React.useState('1');
 

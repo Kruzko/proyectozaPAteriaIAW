@@ -1,3 +1,3 @@
 export * from './zapatoCard';
-export * from './zapatoCardList';
-export * from './zapatoList' 
+export * from './ZapatoCardList';
+export * from './zapatoList';

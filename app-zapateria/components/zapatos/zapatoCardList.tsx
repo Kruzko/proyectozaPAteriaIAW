@@ -1,17 +1,17 @@
 import { Grid } from "@mui/material";
 import { FC } from "react"
-import { zapatoCard } from ".";
+import { ZapatoCard } from ".";
 import { IZapato } from '../../interfaces/zapato/IZapato';
 
 interface Props {
     zapatos: IZapato[]
 }
-export const zapatosCardList:FC<Props> = ({ zapatos }) => {
+export const ZapatosCardList:FC<Props> = ({ zapatos }) => {
   return (
     <Grid container spacing={4}>
       {
         zapatos.map( (zapato ) => (
-          <zapatoCard 
+          <ZapatoCard 
             zapato = { zapato }
             key = { zapato.cod }
           />

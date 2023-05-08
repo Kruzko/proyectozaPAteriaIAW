@@ -8,7 +8,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 interface Props {
     zapatos: IZapato[]
 }
-export const LibrosList:FC<Props> = ({zapatos}) => {
+export const ZapatosList:FC<Props> = ({zapatos}) => {
   
   const colums: GridColDef[] = [
         { field: 'nombre', headerName: 'Nombre', width: 130},
