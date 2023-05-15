@@ -1,11 +1,13 @@
 import { AppBar, Box, Button, IconButton, Link, Toolbar, Typography } from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
 import NextLink from 'next/link';
+import Image from 'next/image';
 
 export const NavBar = () => {
   return (
     <AppBar>
         <Toolbar>
+            <Image src="/zapato.png" width={80} height={60} alt="logo"/>
             <IconButton
                 size="large"
                 edge="start"
@@ -38,15 +40,16 @@ export const NavBar = () => {
                 <Link href='/pedido' component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Pedidos</Button>
                 </Link>
-                <Link href='/zapatos' component={ NextLink }>
+                <Link href='/admin/zapatos' component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Zapatos</Button>
                 </Link>
             </Box>
             <Box flex={1} />
             <Box>
-            <Link href='/auth/login' passHref component={ NextLink }>
-                <Button sx={{ color: 'white'}}>Login</Button>
-            </Link>
+                <Typography>User: usuario</Typography>
+                <Link href='/auth/login' passHref component={ NextLink }>
+                    <Button sx={{ color: 'white'}}>Login</Button>
+                </Link>
             </Box>
         </Toolbar>
     </AppBar>

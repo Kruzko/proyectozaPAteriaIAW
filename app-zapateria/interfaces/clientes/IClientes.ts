@@ -8,7 +8,7 @@ export interface ICliente {
     nif:       string;
     nombre:    string;
     apellidos: string;
-    telefono: string;
+    telefono: number;
 }
 
 // export interface IClientes: Cliente[];

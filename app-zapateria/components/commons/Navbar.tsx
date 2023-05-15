@@ -1,11 +1,13 @@
 import { AppBar, Box, Button, IconButton, Link, Toolbar, Typography } from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
 import NextLink from 'next/link';
+import Image from 'next/image';
 
 export const NavBar = () => {
   return (
-    <AppBar>
+    <AppBar sx={{ backgroundColor:'blue'}}>
         <Toolbar>
+            <Image src="/zapato.png" width={80} height={60} alt="logo"/>
             <IconButton
                 size="large"
                 edge="start"

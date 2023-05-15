@@ -18,7 +18,7 @@ export const AuthLayout:FC<Props> = ({ children, title }) => {
         <header>
         <Box component="nav" 
                  sx= {{ padding:'10', backgroundColor:'red', alignItems:'center',  display: { xs: 'none', sm: 'flex' }}} >
-                <Image src="/DM.png" width={80} height={60}  alt="logo" />
+                <Image src="/zapato.png" width={80} height={60}  alt="logo" />
                 <Box flex={2} />  
                     <Typography fontWeight={700}>Zona de Autenticación</Typography> 
                 <Box flex={2} />   
