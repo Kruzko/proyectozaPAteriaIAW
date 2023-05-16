@@ -1,21 +1,29 @@
 [
     {
         "cod":"13345678",
+        "nombre":"tenis adidas",
+        "precio":"30€",
         "tipo": "deportivo"
     },
 
     {
         "cod":"14345678",
+        "nombre":"zuecos",
+        "precio":"40€",
         "tipo": "zueco"
     },
 
     {
         "cod":"15345678",
+        "nombre":"alpargatas",
+        "precio":"10€",
         "tipo": "alpargata"
     },
 
     {
         "cod":"16345678",
+        "nombre":"botas montaña",
+        "precio":"60€",
         "tipo": "botas"
     }
 ]
