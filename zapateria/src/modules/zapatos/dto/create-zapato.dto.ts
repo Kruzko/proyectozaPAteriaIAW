@@ -5,5 +5,14 @@ export class CreateZapatoDto {
     cod: string;
 
     @IsString()
+    nombre: string;
+
+    @IsString()
+    precio: string;
+
+    @IsString()
+    thumbnailUrl: string;
+    
+    @IsString()
     tipo: string;
 }

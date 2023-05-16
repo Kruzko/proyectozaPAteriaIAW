@@ -10,6 +10,15 @@ export class Zapato {
     @Column('text')
     tipo: string;
 
+    @Column('text')
+    nombre: string;
+
+    @Column('text')
+    precio: string;
+
+    @Column('text')
+    thumbnailUrl: string;
+
     //id empleado
     @ManyToOne(
         () => Empleado,
