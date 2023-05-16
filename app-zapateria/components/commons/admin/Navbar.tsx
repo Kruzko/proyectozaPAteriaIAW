@@ -28,7 +28,7 @@ export const NavBar = () => {
                 <Link href='/clientes' passHref component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Clientes</Button>
                 </Link>
-                <Link href='/auth_user' component={ NextLink }>
+                <Link href='/user' component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Usuarios</Button>
                 </Link>
                 <Link href='/empleados' component={ NextLink }>

@@ -25,7 +25,7 @@ export const NavBar = () => {
             <Box component="nav" 
                  sx= {{ display: { xs: 'none', sm: 'flex' }}} >
                     
-                <Link href='/clientes' passHref component={ NextLink }>
+                {/* <Link href='/clientes' passHref component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Clientes</Button>
                 </Link>
                 <Link href='/user' component={ NextLink }>
@@ -39,14 +39,14 @@ export const NavBar = () => {
                 </Link>
                 <Link href='/pedido' component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Pedidos</Button>
-                </Link>
+                </Link> */}
                 <Link href='/zapatos' component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Zapatos</Button>
                 </Link>
             </Box>
             <Box flex={1} />
             <Box>
-                <Typography>User: usuario</Typography>
+                {/* <Typography>User: usuario</Typography> */}
                 <Link href='/auth/login' passHref component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Login</Button>
                 </Link>

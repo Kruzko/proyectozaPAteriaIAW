@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { NavBar } from '../components/commons';
+import { NavBar } from '../components/commons/admin';
 
 interface Props {
     children: any;
