@@ -10,13 +10,13 @@ export class Zapato {
     @Column('text')
     tipo: string;
 
-    @Column('text')
+    @Column({default:'text'})
     nombre: string;
 
-    @Column('text')
+    @Column({default:'text'})
     precio: string;
 
-    @Column('text')
+    @Column({default:'text'})
     thumbnailUrl: string;
 
     //id empleado
