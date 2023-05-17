@@ -1,7 +1,7 @@
 import { FC, useReducer } from 'react';
 import { AuthContext, authReducer  } from './';
 import { IUser } from '../../interfaces/Users/IUser';
-import libreriaApi from '../../api/LibreriaApi';
+import ZapateriaApi from '../../api/ZapateriaApi';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { IRespuestaApiAuth } from './interfaces/IRespuestaAuthApi';
@@ -19,7 +19,7 @@ export const AuthProvider:FC = ({ children }) => {
     
      const loginUser = async (email: string, password: string):Promise<boolean> => {
          try {
-             const { data } = await libreriaApi.post('/auth/login', { email, password });
+             const { data } = await ZapateriaApi.post('/auth/login', { email, password });
              console.log(data);
              const { token, user } = data;
              console.log(user);
@@ -33,7 +33,7 @@ export const AuthProvider:FC = ({ children }) => {
 
     const registerUser = async (email: string, password: string, fullName: string ):Promise<IRespuestaApiAuth>=> {
         try {
-            const { data } = await libreriaApi.post ('/auth/rgister', { email, fullName, password })
+            const { data } = await ZapateriaApi.post ('/auth/register', { email, fullName, password })
             const { token, user } = data;
             Cookies.set('token', token);
             //mando a llamar al login pq ya se autenticó

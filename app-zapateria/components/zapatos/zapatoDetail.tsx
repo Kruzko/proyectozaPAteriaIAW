@@ -61,7 +61,7 @@ export const ZapatoDetail:FC<Props> = ({zapato}) => {
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <TabList onChange={handleChange} aria-label="lab API tabs example">
                 <Tab label="Descripcion" value="1" />
-                <Tab label="Sinpsis" value="2" />
+                <Tab label="Sinopsis" value="2" />
                 <Tab label="Estado" value="3" />
               </TabList>
             </Box>

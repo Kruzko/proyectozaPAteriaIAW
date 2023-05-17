@@ -10,7 +10,7 @@ export const ZapatoCard:FC<Props> = ({ zapato }) => {
   return (
     <Grid item  xs= {6} sm={3}>
         <Card sx={{ width: '90%' }}>
-          <Link href={`/zapato/${zapato.cod}`}  passHref component={NextLink} prefetch={false}>
+          <Link href={`/zapatos/${zapato.cod}`}  passHref component={NextLink} prefetch={false}>
             <CardActionArea>
                 <Box display='flex' alignItems='flex-start' flexDirection='row'>
                     <CardMedia
