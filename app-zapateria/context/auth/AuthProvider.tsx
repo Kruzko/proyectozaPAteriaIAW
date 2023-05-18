@@ -31,9 +31,9 @@ export const AuthProvider:FC = ({ children }) => {
          }
      } 
 
-    const registerUser = async (email: string, password: string, fullName: string ):Promise<IRespuestaApiAuth>=> {
+    const registerUser = async (email: string, password: string ):Promise<IRespuestaApiAuth>=> {
         try {
-            const { data } = await ZapateriaApi.post ('/auth/register', { email, fullName, password })
+            const { data } = await ZapateriaApi.post ('/auth/register', { email, password })
             const { token, user } = data;
             Cookies.set('token', token);
             //mando a llamar al login pq ya se autenticó
