@@ -2,7 +2,7 @@ import React from 'react'
 import { MainLayouts } from 'layouts'
 import { ZapatosCardList, ZapatosList} from '@/components/zapatos'
 import { useZapatos } from '@/hooks/useZapato';
-import { Mundo } from 'components';
+
 
 const ZapatosIndexTabla = () => {
 
@@ -16,7 +16,7 @@ const ZapatosIndexTabla = () => {
         {
           (isLoading)
           ? <ZapatosList zapatos = {zapatos} />
-          : <Mundo />
+          : ''
         }
     </MainLayouts>
     

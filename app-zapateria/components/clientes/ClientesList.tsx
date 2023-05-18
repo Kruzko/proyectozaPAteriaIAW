@@ -31,7 +31,9 @@ export const ClientesList:FC<Props> = ({clientes}) => {
   return (
             <Grid container sx={{ width: '70%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >
-                <AddBoxIcon sx={{  color: 'green', fontSize:40 }} />
+                <a href='/formulario'>
+                  <AddBoxIcon sx={{  color: 'green', fontSize:40 }} />
+                </a>
               </Box>
                
                <Grid item xs={12} 

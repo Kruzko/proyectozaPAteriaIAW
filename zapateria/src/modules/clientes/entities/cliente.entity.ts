@@ -8,13 +8,13 @@ export class Cliente {
     @PrimaryColumn()
     nif: string;
 
-    @Column('text')
+    @Column({default:'text'})
     nombre: string;
 
-    @Column('text')
+    @Column({default:'text'})
     apellido: string;
 
-    @Column('text')
+    @Column({default:'text'})
     telefono: string;
 
     //exportar id a pedido

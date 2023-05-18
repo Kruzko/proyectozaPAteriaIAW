@@ -16,7 +16,7 @@ const ClientesIndex = () => {
         {
           (isLoading)
           ? <ClientesList clientes = {clientes} />
-          : <Mundo />
+          : ''
         }
     </MainLayouts>
     
