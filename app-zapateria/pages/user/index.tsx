@@ -16,7 +16,7 @@ const UsuariosIndex = () => {
         {
           (isLoading)
           ? <UserList usuarios = {user} />
-          : <Mundo />
+          : ''
         }
     </MainLayouts>
     

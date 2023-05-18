@@ -16,7 +16,7 @@ const ZapatosIndexTabla = () => {
         {
           (isLoading)
           ? <ZapatosList zapatos = {zapatos} />
-          : <Mundo />
+          : ''
         }
     </MainLayouts>
     

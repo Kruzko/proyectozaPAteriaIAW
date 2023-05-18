@@ -16,7 +16,7 @@ const PedidosIndex = () => {
         {
           (isLoading)
           ? <PedidosList pedidos = {pedidos} />
-          : <Mundo />
+          : ''
         }
     </MainLayouts>
     

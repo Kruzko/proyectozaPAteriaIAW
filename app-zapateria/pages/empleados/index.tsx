@@ -16,7 +16,7 @@ const EmpleadosIndex = () => {
         {
           (isLoading)
           ? <EmpleadosList empleados = {empleados} />
-          : <Mundo />
+          : ''
         }
     </MainLayouts>
     

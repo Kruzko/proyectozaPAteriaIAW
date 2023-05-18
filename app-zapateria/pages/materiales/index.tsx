@@ -16,7 +16,7 @@ const MaterialesIndex = () => {
         {
           (isLoading)
           ? <MaterialesList materiales = {materiales} />
-          : <Mundo />
+          : ''
         }
     </MainLayouts>
     
