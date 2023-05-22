@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class User {
-    @PrimaryColumn()
+    @PrimaryColumn('uuid')
     cod:string;
 
     @Column('text', { unique: true })
