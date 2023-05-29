@@ -1,9 +1,9 @@
 import { Cliente } from "src/modules/clientes/entities/cliente.entity";
-import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class User {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn('uuid')
     cod:string;
 
     @Column('text', { unique: true })

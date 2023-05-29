@@ -1,27 +1,23 @@
 [
     {
-        "cod": "39789034",
         "email": "maria@gmail.com",
         "password": "Usuario1234",
         "usuario": "maria1233"
     },
 
     {
-        "cod": "39889034",
         "email": "pedro@gmail.com",
         "password": "Pedro1234",
         "usuario": "pedro987"
     },
 
     {
-        "cod": "39389034",
         "email": "montaña@gmail.com",
         "password": "Montaña1234",
         "usuario": "Aña1234"
     },
 
     {
-        "cod": "39589034",
         "email": "Paco@gmail.com",
         "password": "Taladro1234",
         "usuario": "Paco324"
