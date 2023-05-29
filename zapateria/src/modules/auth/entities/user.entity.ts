@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn, PrimaryGeneratedCo
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn('increment')
     cod:string;
 
     @Column('text', { unique: true })
