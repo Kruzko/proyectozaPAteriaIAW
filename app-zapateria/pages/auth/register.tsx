@@ -35,9 +35,10 @@ const RegisterPage = () => {
     //manejador del evento submit del formulario
     const onRegisterUser = async (InputData: UserData) => {
 
+        console.log(InputData);
         setShowError(false);
-        const { email, password } = InputData;
-        const { hasError, message } = await registerUser(email, password)
+        const { email, password, usuario } = InputData;
+        const { hasError, message } = await registerUser(email, password, usuario)
         console.log(message);
         if (hasError) {
             setShowError(true);
@@ -52,7 +53,7 @@ const RegisterPage = () => {
     }
 
     return (
-        <AuthLayout title={'Ingresar'}>
+        <AuthLayout title={'Registro'}>
             <form onSubmit={handleSubmit(onRegisterUser)} noValidate>
                 <Box sx={{ width: 350, padding: '10px 20px' }}>
                     <Grid container spacing={2}>

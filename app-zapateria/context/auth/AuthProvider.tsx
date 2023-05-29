@@ -14,7 +14,7 @@ const AUTH_INITIAL_STATE: AuthState = {
     user: undefined
 }
 
-export const AuthProvider:FC = ({ children }) => {
+export const AuthProvider:FC<{children: any}> = ({ children }) => {
     const [ state, dispatch ] = useReducer( authReducer, AUTH_INITIAL_STATE );
     
      const loginUser = async (email: string, password: string):Promise<boolean> => {
@@ -31,9 +31,9 @@ export const AuthProvider:FC = ({ children }) => {
          }
      } 
 
-    const registerUser = async (email: string, password: string ):Promise<IRespuestaApiAuth>=> {
+    const registerUser = async (email: string, password: string, usuario:string ):Promise<IRespuestaApiAuth>=> {
         try {
-            const { data } = await ZapateriaApi.post ('/auth/register', { email, password })
+            const { data } = await ZapateriaApi.post ('/auth/register', { email, password, usuario })
             const { token, user } = data;
             Cookies.set('token', token);
             //mando a llamar al login pq ya se autenticó
@@ -58,8 +58,8 @@ export const AuthProvider:FC = ({ children }) => {
     }
     return (
         <AuthContext.Provider value={{
-            // ...state,
-            // loginUser,
+            ...state,
+            loginUser,
             registerUser
         }}>
             { children }
