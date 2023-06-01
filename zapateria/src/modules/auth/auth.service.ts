@@ -8,6 +8,8 @@ import { UpdateAuthDto } from './dto/update-auth.dto';
 import { User } from './entities/user.entity';
 //import { JwtPayload } from './interfaces/jwt-payload.interface';
 import * as bcrypt from 'bcrypt';
+import { JwtPayload } from './interfaces/jwt-payload.interface';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
@@ -15,72 +17,72 @@ export class AuthService {
   constructor(
     @InjectRepository(User)
     private readonly Userrepository: Repository<User>,
-    //private readonly jwtService: JwtService
+    private readonly jwtService: JwtService
   ){
 
   }
 
-   async create(createUserDto: CreateUserDto){
-     try{
-       const user = this.Userrepository.create(createUserDto);
-       console.log(user);
-       await this.Userrepository.save(user);
-       return user;
-     } catch (error) {
-       console.log(error);
-       throw new InternalServerErrorException('Ayuda')
-     }
-   }
+  //  async create(createUserDto: CreateUserDto){
+  //    try{
+  //      const user = this.Userrepository.create(createUserDto);
+  //      console.log(user);
+  //      await this.Userrepository.save(user);
+  //      return user;
+  //    } catch (error) {
+  //      console.log(error);
+  //      throw new InternalServerErrorException('Ayuda')
+  //    }
+  //  }
 
-  // async login( loginUserDto: LoginUserDto ){
-  //   try {
-  //     // buscamos el usuario del email
-  //     const { email, password } = loginUserDto;
-  //     const user = await this.Userrepository.findOne({ 
-  //       where: { email },
-  //       select: { email: true, password: true, usuario: true }
-  //      });
+   async login( loginUserDto: LoginUserDto ){
+    try {
+      // buscamos el usuario del email
+      const { email, password } = loginUserDto;
+      const user = await this.Userrepository.findOne({ 
+        where: { email },
+        select: { email: true, password: true, usuario: true }
+       });
 
-  //     if ( !user ) 
-  //       throw new UnauthorizedException ('Credenciales no válidas (email)');
+      if ( !user ) 
+        throw new UnauthorizedException ('Credenciales no válidas (email)');
 
-  //     //comparamos las contraseñas 
-  //     if (!bcrypt.compareSync( password, user.password ))
-  //       throw new UnauthorizedException('Credenciales no válidas (contraseña)')
+      //comparamos las contraseñas 
+      if (!bcrypt.compareSync( password, user.password ))
+        throw new UnauthorizedException('Credenciales no válidas (email)')
       
-  //     return {
-  //       user: { ...user }, 
-  //       token: this.getJwtToken({ email: user.email })
-  //     }
+      return {
+        user: { ...user }, 
+        token: this.getJwtToken({ email: user.email })
+      }
       
-  //   } catch (error) {
-  //     this.handleDBEerrors(error)
-  //   }
-  // }
+    } catch (error) {
+      this.handleDBErrors(error)
+    }
+  }
 
-  // async create(createUserDto: CreateUserDto) {
-  //   try {
-  //     console.log(createUserDto);
-  //     const { password, ...userData } = createUserDto;
-  //     // const cliente = await this.clientesService.findOne(createUserDto.nif);
-  //     // console.log(cliente);
-  //     const user = this.Userrepository.create({
-  //       ...userData,
-  //       password: bcrypt.hashSync( password, 10 )
-  //     });
-  //     // user.cliente = cliente;
-  //     await this.Userrepository.save(user);
-  //     // delete user.password;
+  async create(createUserDto: CreateUserDto) {
+    try {
+      console.log("INsertando usuario: ",createUserDto);
+      const { password, ...userData } = createUserDto;
+      // const cliente = await this.clientesService.findOne(createUserDto.nif);
+      // console.log(cliente);
+      const user = this.Userrepository.create({
+        ...userData,
+        password: bcrypt.hashSync( password, 10 )
+      });
+      // user.cliente = cliente;
+      await this.Userrepository.save(user);
+      // delete user.password;
 
-  //     return {
-  //       user: { ...user }, 
-  //       token: this.getJwtToken({ email: user.email })
-  //     }
+      return {
+        user: { ...user }, 
+        token: this.getJwtToken({ email: user.email })
+      }
 
-  //   } catch (error) {
-  //     this.handleDBErrors(error)
-  //   }
-  // }
+    } catch (error) {
+      this.handleDBErrors(error)
+    }
+  }
 
   private handleDBErrors (error: any): never{
     if (error.code === '23505')
@@ -88,6 +90,18 @@ export class AuthService {
     
     throw new InternalServerErrorException('Please Check Server Error ...')
   }
+
+  private getJwtToken( payload: JwtPayload){
+    const token = this.jwtService.sign(payload);
+    return token;
+  }
+
+  // private handleDBErrors (error: any): never{
+  //   if (error.code === '23505')
+  //     throw new BadRequestException(error.detail)
+    
+  //   throw new InternalServerErrorException('Please Check Server Error ...')
+  // }
 
 //token jwt
   //  private getJwtToken( payload: JwtPayload){

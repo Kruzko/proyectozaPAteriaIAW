@@ -23,4 +23,7 @@ export class User {
     )
     @JoinColumn()
     cliente?: Cliente;
+
+    @Column('bool', { default: true })
+    isActive: boolean;
 }
