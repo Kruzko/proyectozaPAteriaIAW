@@ -4,7 +4,7 @@ import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn, PrimaryGeneratedCo
 @Entity()
 export class User {
     @PrimaryGeneratedColumn('increment')
-    cod:string;
+    cod: string;
 
     @Column('text', { unique: true })
     email: string;
