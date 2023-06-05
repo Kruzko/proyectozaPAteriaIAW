@@ -15,6 +15,7 @@ export class JwtStrategy extends PassportStrategy( Strategy ) {
         private readonly userRepository: Repository<User>,
         configService: ConfigService 
     ){
+        //deberia funcionar
         //llamamos al constructor del padre
         super({
             secretOrKey: configService.get<string>('JWT_SECRET'),         
