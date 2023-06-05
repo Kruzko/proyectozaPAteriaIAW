@@ -62,7 +62,7 @@ export class AuthService {
 
   async create(createUserDto: CreateUserDto) {
     try {
-      console.log("INsertando usuario: ",createUserDto);
+      console.log("Insertando usuario: ",createUserDto);
       const { password, ...userData } = createUserDto;
       // const cliente = await this.clientesService.findOne(createUserDto.nif);
       // console.log(cliente);
