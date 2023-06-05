@@ -17,7 +17,7 @@ export class JwtStrategy extends PassportStrategy( Strategy ) {
     ){
         //llamamos al constructor del padre
         super({
-            secretOrKey: configService.get('JWT_SECRET'),            
+            secretOrKey: configService.get<string>('JWT_SECRET'),         
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             //el token lo mandamos como un parametro 'token' del la seccion 'auth' de la request
             // y  de tipo 'Bearer Token' 
