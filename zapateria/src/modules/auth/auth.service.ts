@@ -76,7 +76,8 @@ export class AuthService {
 
       return {
         user: { ...user }, 
-        token: this.getJwtToken({ email: user.email })
+        token: this.getJwtToken({ email: user.email }),
+        message: 'usuario creado correctamente'
       }
 
     } catch (error) {

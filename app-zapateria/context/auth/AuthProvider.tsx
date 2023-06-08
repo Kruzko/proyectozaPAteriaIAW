@@ -50,6 +50,7 @@ export const AuthProvider:FC<{children: any}> = ({ children }) => {
             const { data } = await ZapateriaApi.post ('/auth/register', { email, password, usuario, cod })
             const { token, user } = data;
             Cookies.set('token', token);
+            console.log('usuario', user)
             Cookies.set('rol', user.roles[0]);
             //mando a llamar al login pq ya se autenticó
             dispatch({ type: '[Auth] - Login', payload: user });
