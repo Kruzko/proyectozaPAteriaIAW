@@ -45,9 +45,9 @@ export const AuthProvider:FC<{children: any}> = ({ children }) => {
         }
     } 
 
-    const registerUser = async (email: string, password: string, usuario:string ):Promise<IRespuestaApiAuth>=> {
+    const registerUser = async (email: string, password: string, usuario:string, cod: string ):Promise<IRespuestaApiAuth>=> {
         try {
-            const { data } = await ZapateriaApi.post ('/auth/register', { email, password, usuario })
+            const { data } = await ZapateriaApi.post ('/auth/register', { email, password, usuario, cod })
             const { token, user } = data;
             Cookies.set('token', token);
             Cookies.set('rol', user.roles[0]);

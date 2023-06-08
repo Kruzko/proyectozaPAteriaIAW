@@ -14,13 +14,15 @@ interface IRespuestaRegister {
     email: string;
     password: string;
     usuario: string;
+    cod: string;
     isActive: boolean;
     roles: String[]
 }
 type UserData = {
     email: string,
     password: string,
-    usuario: string
+    usuario: string,
+    cod: string
 };
 const RegisterPage = () => {
     const router = useRouter();
@@ -37,8 +39,8 @@ const RegisterPage = () => {
 
         console.log(InputData);
         setShowError(false);
-        const { email, password, usuario } = InputData;
-        const { hasError, message } = await registerUser(email, password, usuario)
+        const { email, password, usuario, cod } = InputData;
+        const { hasError, message } = await registerUser(email, password, usuario, cod)
         console.log(message);
         if (hasError) {
             setShowError(true);
@@ -95,6 +97,16 @@ const RegisterPage = () => {
                                 error={!!errors.password}
                                 helperText={errors.password?.message}
                                 label="Contraseña" type="password" variant='filled' fullWidth />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                {...register('cod', {
+                                    required: 'numero cualquiera'
+                                })}
+                                error={!!errors.cod}
+                                type='string'
+                                helperText={errors.cod?.message}
+                                label="Cod" variant='filled' fullWidth />
                         </Grid>
                         <Grid item xs={12}>
                             <Button

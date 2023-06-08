@@ -1,7 +1,7 @@
 
 
 export interface IUser {
-    cod?: number;
+    cod?: string;
     email: string;
     password: string;
     usuario: string;

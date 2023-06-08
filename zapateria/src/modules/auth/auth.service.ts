@@ -80,6 +80,7 @@ export class AuthService {
       }
 
     } catch (error) {
+      console.log('entramos en service')
       this.handleDBErrors(error)
     }
   }
