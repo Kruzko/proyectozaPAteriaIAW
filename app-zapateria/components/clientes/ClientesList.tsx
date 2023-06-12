@@ -5,35 +5,50 @@ import { ICliente } from '../../interfaces/clientes/IClientes';
 import ClearIcon from '@mui/icons-material/Clear';
 import ModeEditOutlineTwoToneIcon from '@mui/icons-material/ModeEditOutlineTwoTone';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import { ZapateriaApi } from '@/api';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+
 interface Props {
     clientes: ICliente[]
 }
 export const ClientesList:FC<Props> = ({clientes}) => {
   
+
   const colums: GridColDef[] = [
         { field: 'nif', headerName: 'nif', width: 130},
-        { field: 'nombre', headerName: 'nombre', width: 130},
-        { field: 'apellido', headerName:'apellido', width: 300 },
-        { field: 'telefono', headerName:'telefono', width: 300 },
+        { field: 'nombre', headerName: 'nombre', width: 130, editable:true},
+        { field: 'apellido', headerName:'apellido', width: 300, editable:true },
+        { field: 'telefono', headerName:'telefono', width: 300, editable:true },
         { field: 'opciones',
           headerName: 'Acciones',
           description: 'Muestra información si la orden está pagada o no',
           width: 200,
-          renderCell: () => (
+          renderCell: (params) => (
               <>
-                <a href="">
-                  <ModeEditOutlineTwoToneIcon sx={{ color: 'red'}} />
-                </a>
-                <a href="">
-                  <ClearIcon  sx={{ color: 'blue'}} />
-                </a>
+                <DeleteIcon sx={{ color: 'red'}} 
+                onClick={ async (event) => {
+                  const nif = params.row.nif
+                  console.log(nif)
+                  const { data } = await ZapateriaApi.delete(`/clientes/${nif}`);
+                }}
+                />
+              
+              <EditIcon sx={{ color: 'blue'}} 
+                onClick={ async (event) => {
+                  const nif = params.row.nif
+                  const cliente = params.row
+                  console.log(nif, cliente)
+                  const { data } = await ZapateriaApi.patch(`/clientes/${nif}`, cliente);
+                }}
+                />
               </>
             ) 
         }
   ];
   const rows = clientes;
   return (
-            <Grid container sx={{ width: '70%', display: 'flex',justifyContent: 'flex-end'}}>
+            <Grid container sx={{ width: '100%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >
                 <a href='/formulario/FormularioClientes'>
                   <AddBoxIcon sx={{  color: 'green', fontSize:40 }} />
@@ -42,7 +57,7 @@ export const ClientesList:FC<Props> = ({clientes}) => {
                
                <Grid item xs={12} 
                   sx={{ 
-                    height: 350, width: '80%',
+                    height: 350, width: '90%',
                     boxShadow: 2,
                     border: 2,
                     borderColor: 'primary.light',

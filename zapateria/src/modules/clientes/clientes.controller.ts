@@ -27,11 +27,13 @@ export class ClientesController {
 
   @Patch(':nif')
   update(@Param('nif') nif: string, @Body() updateClienteDto: UpdateClienteDto) {
-    return this.clientesService.update(nif, updateClienteDto);
+    console.log(nif,updateClienteDto)
+    // return this.clientesService.update(nif, updateClienteDto);
   }
 
   @Delete(':nif')
   deleteOne(@Param('nif') nif: string) {
+    console.log(nif)
     return this.clientesService.deleteOne(nif);
    }
 

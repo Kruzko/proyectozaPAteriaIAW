@@ -41,7 +41,10 @@ export class ClientesService {
   }
 
   update(nif: string, updateClienteDto: UpdateClienteDto) {
-    return `This action updates a #${nif} cliente`;
+    return this.clienterepository.update(
+      nif,
+      updateClienteDto
+    )
   }
 
   async deleteAllClients(){

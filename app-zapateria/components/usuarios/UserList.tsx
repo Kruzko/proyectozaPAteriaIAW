@@ -20,8 +20,12 @@ export const UserList:FC<Props> = ({usuarios}) => {
           width: 200,
           renderCell: () => (
               <>
-                <ModeEditOutlineTwoToneIcon sx={{ color: 'red'}} />
-                <ClearIcon  sx={{ color: 'blue'}} />
+                <a onClick={deleteOne}>
+                  <ModeEditOutlineTwoToneIcon sx={{ color: 'red'}} />
+                </a>
+                <a onClick={update}>
+                  <ClearIcon  sx={{ color: 'blue'}} />
+                </a>
               </>
             ) 
         }
