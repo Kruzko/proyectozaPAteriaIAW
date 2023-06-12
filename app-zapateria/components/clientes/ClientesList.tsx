@@ -21,8 +21,12 @@ export const ClientesList:FC<Props> = ({clientes}) => {
           width: 200,
           renderCell: () => (
               <>
-                <ModeEditOutlineTwoToneIcon sx={{ color: 'red'}} />
-                <ClearIcon  sx={{ color: 'blue'}} />
+                <a href="">
+                  <ModeEditOutlineTwoToneIcon sx={{ color: 'red'}} />
+                </a>
+                <a href="">
+                  <ClearIcon  sx={{ color: 'blue'}} />
+                </a>
               </>
             ) 
         }
@@ -31,7 +35,7 @@ export const ClientesList:FC<Props> = ({clientes}) => {
   return (
             <Grid container sx={{ width: '70%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >
-                <a href='/formulario'>
+                <a href='/formulario/FormularioClientes'>
                   <AddBoxIcon sx={{  color: 'green', fontSize:40 }} />
                 </a>
               </Box>
