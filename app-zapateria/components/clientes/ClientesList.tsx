@@ -50,8 +50,13 @@ export const ClientesList:FC<Props> = ({clientes}) => {
   return (
             <Grid container sx={{ width: '100%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >
-                <a href='/formulario/FormularioClientes'>
-                  <AddBoxIcon sx={{  color: 'green', fontSize:40 }} />
+                <a href='/app-zapateria/pages/formulario/createCliente'>
+                  <AddBoxIcon sx={{  color: 'green', fontSize:40 }}
+                  onClick={ async (event) => {
+                    const nif = params.row.nif
+                    console.log(nif, clientes)
+                    const { data } = await ZapateriaApi.post(`/clientes/${nif}`, clientes);
+                  }} />
                 </a>
               </Box>
                

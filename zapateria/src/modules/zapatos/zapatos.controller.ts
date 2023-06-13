@@ -17,19 +17,20 @@ export class ZapatosController {
     return this.zapatosService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.zapatosService.findOne(id);
+  @Get(':cod')
+  findOne(@Param('cod') cod: string) {
+    return this.zapatosService.findOne(cod);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateZapatoDto: UpdateZapatoDto) {
-    return this.zapatosService.update(+id, updateZapatoDto);
+  @Patch(':cod')
+  update(@Param('cod') cod: string, @Body() updateZapatoDto: UpdateZapatoDto) {
+    console.log(cod,updateZapatoDto)
+    return this.zapatosService.update(cod, updateZapatoDto);
   }
 
-  @Delete(':id')
-  deleteOne(@Param('id') id: string) {
-    return this.zapatosService.deleteOne(id);
+  @Delete(':cod')
+  deleteOne(@Param('cod') cod: string) {
+    return this.zapatosService.deleteOne(cod);
    }
 
   @Delete()

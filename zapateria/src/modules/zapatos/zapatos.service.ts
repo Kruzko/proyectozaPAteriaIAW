@@ -37,8 +37,11 @@ export class ZapatosService {
     });
   }
 
-  update(id: number, updateZapatoDto: UpdateZapatoDto) {
-    return `This action updates a #${id} zapato`;
+  update(cod: string, updateZapatoDto: UpdateZapatoDto) {
+    return this.Zapatorepository.update(
+      cod,
+      updateZapatoDto
+    )
   }
 
   async deleteOne(cod: string) {
