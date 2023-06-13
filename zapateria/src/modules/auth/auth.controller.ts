@@ -30,19 +30,20 @@ export class AuthController {
     return this.authService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.authService.findOne(id);
+  @Get(':cod')
+  findOne(@Param('cod') cod: string) {
+    return this.authService.findOne(cod);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
-    return this.authService.update(id, updateAuthDto);
+  @Patch(':cod')
+  update(@Param('cod') cod: string, @Body() updateAuthDto: UpdateAuthDto) {
+    console.log(cod,updateAuthDto)
+    return this.authService.update(cod, updateAuthDto);
   }
 
-  @Delete(':id')
-  deleteOne(@Param('id') id: string) {
-    return this.authService.deleteOne(id);
+  @Delete(':cod')
+  deleteOne(@Param('cod') cod: string) {
+    return this.authService.deleteOne(cod);
    }
 
   @Delete()

@@ -15,9 +15,9 @@ export const EmpleadosList:FC<Props> = ({empleados}) => {
   
   const colums: GridColDef[] = [
         { field: 'nif', headerName: 'nif', width: 130},
-        { field: 'nombre', headerName: 'nombre', width: 130},
-        { field: 'apellido', headerName:'apellido', width: 300 },
-        { field: 'telefono', headerName:'telefono', width: 300 },
+        { field: 'nombre', headerName: 'nombre', width: 130,editable:true},
+        { field: 'apellido', headerName:'apellido', width: 300,editable:true },
+        { field: 'telefono', headerName:'telefono', width: 300,editable:true },
         { field: 'opciones',
           headerName: 'Acciones',
           description: 'Muestra información si la orden está pagada o no',
@@ -32,7 +32,7 @@ export const EmpleadosList:FC<Props> = ({empleados}) => {
                 }}
                 />
               
-              <EditIcon sx={{ color: 'blue'}} 
+                <EditIcon sx={{ color: 'blue'}} 
                 onClick={ async (event) => {
                   const nif = params.row.nif
                   const empleados = params.row

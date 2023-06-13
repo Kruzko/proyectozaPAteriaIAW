@@ -121,8 +121,11 @@ export class AuthService {
     });
   }
 
-  update(id: string, updateAuthDto: UpdateAuthDto) {
-    return `This action updates a #${id} auth`;
+  update(cod: string, updateAuthDto: UpdateAuthDto) {
+    return this.Userrepository.update(
+      cod,
+      updateAuthDto
+    )
   }
 
   async deleteOne(cod: string) {
