@@ -24,6 +24,7 @@ export class EmpleadosController {
 
   @Patch(':nif')
   update(@Param('nif') nif: string, @Body() updateEmpleadoDto: UpdateEmpleadoDto) {
+    console.log(nif,updateEmpleadoDto)
     return this.empleadosService.update(nif, updateEmpleadoDto);
   }
 

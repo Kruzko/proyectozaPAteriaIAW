@@ -38,7 +38,10 @@ export class EmpleadosService {
   }
 
   update(nif: string, updateEmpleadoDto: UpdateEmpleadoDto) {
-    return `This action updates a #${nif} empleado`;
+    return this.empleadorepository.update(
+      nif,
+      updateEmpleadoDto
+    )
   }
 
   async deleteOne(nif: string) {

@@ -5,6 +5,9 @@ import { IEmpleado } from '../../interfaces/empleados/IEmpleados';
 import ClearIcon from '@mui/icons-material/Clear';
 import ModeEditOutlineTwoToneIcon from '@mui/icons-material/ModeEditOutlineTwoTone';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import { ZapateriaApi } from '@/api';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 interface Props {
     empleados: IEmpleado[]
 }
@@ -19,24 +22,38 @@ export const EmpleadosList:FC<Props> = ({empleados}) => {
           headerName: 'Acciones',
           description: 'Muestra información si la orden está pagada o no',
           width: 200,
-          renderCell: () => (
+          renderCell: (params) => (
               <>
-                <ModeEditOutlineTwoToneIcon sx={{ color: 'red'}} />
-                <ClearIcon  sx={{ color: 'blue'}} />
+                <DeleteIcon sx={{ color: 'red'}} 
+                onClick={ async (event) => {
+                  const nif = params.row.nif
+                  console.log(nif)
+                  const { data } = await ZapateriaApi.delete(`/empleados/${nif}`);
+                }}
+                />
+              
+              <EditIcon sx={{ color: 'blue'}} 
+                onClick={ async (event) => {
+                  const nif = params.row.nif
+                  const empleados = params.row
+                  console.log(nif, empleados)
+                  const { data } = await ZapateriaApi.patch(`/empleados/${nif}`, empleados);
+                }}
+                />
               </>
             ) 
         }
   ];
   const rows = empleados;
   return (
-            <Grid container sx={{ width: '70%', display: 'flex',justifyContent: 'flex-end'}}>
+            <Grid container sx={{ width: '100%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >
                 <AddBoxIcon sx={{  color: 'green', fontSize:40 }} />
               </Box>
                
                <Grid item xs={12} 
                   sx={{ 
-                    height: 350, width: '80%',
+                    height: 350, width: '90%',
                     boxShadow: 2,
                     border: 2,
                     borderColor: 'primary.light',
