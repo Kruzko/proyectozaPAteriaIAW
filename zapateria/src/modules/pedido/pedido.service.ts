@@ -37,8 +37,11 @@ export class PedidoService {
     });
   }
 
-  update(id: number, updatePedidoDto: UpdatePedidoDto) {
-    return `This action updates a #${id} pedido`;
+  update(cod: string, updatePedidoDto: UpdatePedidoDto) {
+    return this.Pedidorepository.update(
+      cod,
+      updatePedidoDto
+    )
   }
 
   async deleteOne(cod: string) {

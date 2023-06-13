@@ -17,14 +17,15 @@ export class PedidoController {
     return this.pedidoService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.pedidoService.findOne(id);
+  @Get(':cod')
+  findOne(@Param('cod') cod: string) {
+    return this.pedidoService.findOne(cod);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePedidoDto: UpdatePedidoDto) {
-    return this.pedidoService.update(+id, updatePedidoDto);
+  @Patch(':cod')
+  update(@Param('cod') cod: string, @Body() updatePedidoDto: UpdatePedidoDto) {
+    console.log(cod,updatePedidoDto)
+    return this.pedidoService.update(cod, updatePedidoDto);
   }
 
   // @Delete(':id')
@@ -32,9 +33,9 @@ export class PedidoController {
   //   return this.pedidoService.remove(+id);
   // }
 
-  @Delete(':id')
-  deleteOne(@Param('id') id: string) {
-    return this.pedidoService.deleteOne(id);
+  @Delete(':cod')
+  deleteOne(@Param('cod') cod: string) {
+    return this.pedidoService.deleteOne(cod);
    }
 
   @Delete()
