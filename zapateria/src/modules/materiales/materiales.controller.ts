@@ -17,19 +17,20 @@ export class MaterialesController {
     return this.materialesService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.materialesService.findOne(id);
+  @Get(':cod')
+  findOne(@Param('cod') cod: string) {
+    return this.materialesService.findOne(cod);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMaterialeDto: UpdateMaterialeDto) {
-    return this.materialesService.update(+id, updateMaterialeDto);
+  @Patch(':cod')
+  update(@Param('cod') cod: string, @Body() updateMaterialeDto: UpdateMaterialeDto) {
+    console.log(cod,updateMaterialeDto)
+    return this.materialesService.update(cod, updateMaterialeDto);
   }
 
-  @Delete(':id')
-  deleteOne(@Param('id') id: string) {
-    return this.materialesService.deleteOne(id);
+  @Delete(':cod')
+  deleteOne(@Param('cod') cod: string) {
+    return this.materialesService.deleteOne(cod);
    }
 
   @Delete()

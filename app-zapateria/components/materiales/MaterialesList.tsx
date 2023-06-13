@@ -5,6 +5,9 @@ import { IMaterial } from '../../interfaces/material/IMaterial';
 import ClearIcon from '@mui/icons-material/Clear';
 import ModeEditOutlineTwoToneIcon from '@mui/icons-material/ModeEditOutlineTwoTone';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import { ZapateriaApi } from '@/api';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 interface Props {
     materiales: IMaterial[]
 }
@@ -12,29 +15,43 @@ export const MaterialesList:FC<Props> = ({materiales}) => {
   
   const colums: GridColDef[] = [
         { field: 'cod', headerName: 'COD', width: 130},
-        { field: 'descripcion', headerName: 'descripcion', width: 130},
+        { field: 'descripcion', headerName: 'descripcion', width: 130, editable:true},
         { field: 'opciones',
           headerName: 'Acciones',
           description: 'Muestra información si la orden está pagada o no',
           width: 200,
-          renderCell: () => (
+          renderCell: (params) => (
               <>
-                <ModeEditOutlineTwoToneIcon sx={{ color: 'red'}} />
-                <ClearIcon  sx={{ color: 'blue'}} />
+                <DeleteIcon sx={{ color: 'red'}} 
+                onClick={ async (event) => {
+                  const cod = params.row.cod
+                  console.log(cod)
+                  const { data } = await ZapateriaApi.delete(`/materiales/${cod}`);
+                }}
+                />
+              
+              <EditIcon sx={{ color: 'blue'}} 
+                onClick={ async (event) => {
+                  const cod = params.row.cod
+                  const materiales = params.row
+                  console.log(cod, materiales)
+                  const { data } = await ZapateriaApi.patch(`/materiales/${cod}`, materiales);
+                }}
+                />
               </>
             ) 
         }
   ];
   const rows = materiales;
   return (
-            <Grid container sx={{ width: '70%', display: 'flex',justifyContent: 'flex-end'}}>
+            <Grid container sx={{ width: '100%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >
                 <AddBoxIcon sx={{  color: 'green', fontSize:40 }} />
               </Box>
                
                <Grid item xs={12} 
                   sx={{ 
-                    height: 350, width: '80%',
+                    height: 350, width: '90%',
                     boxShadow: 2,
                     border: 2,
                     borderColor: 'primary.light',

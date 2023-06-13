@@ -37,8 +37,11 @@ export class MaterialesService {
     });
   }
 
-  update(id: number, updateMaterialeDto: UpdateMaterialeDto) {
-    return `This action updates a #${id} materiale`;
+  update(cod: string, updateMaterialeDto: UpdateMaterialeDto) {
+    return this.Materialesrepository.update(
+      cod,
+      updateMaterialeDto
+    )
   }
 
   async deleteOne(cod: string) {
