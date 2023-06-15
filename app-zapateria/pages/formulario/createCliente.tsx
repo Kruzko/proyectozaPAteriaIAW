@@ -5,6 +5,7 @@ import NextLink from 'next/link'
 import { Email, ErrorOutline, ErrorSharp } from '@mui/icons-material';
 import { Box, Grid, Typography, TextField, Button, Link, Chip } from '@mui/material';
 import { MainLayouts } from '@/layouts';
+import { ZapateriaApi } from '@/api';
 
 interface IRespuestaRegister {
     token: string;
@@ -21,10 +22,11 @@ type ClientData = {
     apellido: string,
     telefono: string
 };
-const RegisterPage = () => {
+const createCliente = () => {
     const router = useRouter();
     //hook
-    
+    // const { registerClient } = ZapateriaApi(`/clientes`);
+
     const { register, handleSubmit, formState: { errors } } = useForm<ClientData>();
 
     const [showError, setShowError] = useState(false);
@@ -36,7 +38,9 @@ const RegisterPage = () => {
         console.log(InputData);
         setShowError(false);
         const { nif, nombre, apellido, telefono } = InputData;
-        
+
+
+        const { hasError, message } = await ZapateriaApi.post(`/clientes`, InputData)
         console.log(message);
         if (hasError) {
             setShowError(true);
@@ -90,7 +94,7 @@ const RegisterPage = () => {
                                 })}
                                 error={!!errors.apellido}
                                 helperText={errors.apellido?.message}
-                                label="Apellido" type="password" variant='filled' fullWidth />
+                                label="Apellido" variant='filled' fullWidth />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
@@ -115,4 +119,4 @@ const RegisterPage = () => {
     )
 }
 
-export default RegisterPage
+export default createCliente
