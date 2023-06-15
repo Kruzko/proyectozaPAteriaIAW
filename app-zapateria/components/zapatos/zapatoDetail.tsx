@@ -56,7 +56,8 @@ export const ZapatoDetail:FC<Props> = ({zapato}) => {
             </Button>
           </Box>
         </Box>
-        <Box sx={{ width: '100%', typography: 'body1' }}>
+        {/* aqui esta la parte de la descripcion */}
+        {/* <Box sx={{ width: '100%', typography: 'body1' }}>
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -66,7 +67,7 @@ export const ZapatoDetail:FC<Props> = ({zapato}) => {
               </TabList>
             </Box>
           </TabContext>
-        </Box>
+        </Box> */}
         {/* <Box sx={{ width: '100%' }}>
               <Typography  variant='subtitle1' > Sinpsis </Typography>
               <Typography> {libro.shortDescription} </Typography>

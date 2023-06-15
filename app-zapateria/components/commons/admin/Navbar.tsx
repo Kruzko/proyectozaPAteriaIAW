@@ -2,8 +2,13 @@ import { AppBar, Box, Button, IconButton, Link, Toolbar, Typography } from "@mui
 import MenuIcon from '@mui/icons-material/Menu';
 import NextLink from 'next/link';
 import Image from 'next/image';
+import Cookies from "js-cookie";
+import { IUser } from "@/interfaces/Users";
+import { useEffect, useState } from 'react'
+
 
 export const NavBar = () => {
+    let user: IUser;
   return (
     <AppBar>
         <Toolbar>
@@ -17,7 +22,7 @@ export const NavBar = () => {
             >
                 <MenuIcon />
             </IconButton>
-            <Link href='/' passHref component={ NextLink }>
+            <Link href='/admin' passHref component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Home</Button>
             </Link>
             <Box flex={1} />
@@ -46,9 +51,9 @@ export const NavBar = () => {
             </Box>
             <Box flex={1} />
             <Box>
-                <Typography>User: usuario</Typography>
-                <Link href='/auth/login' passHref component={ NextLink }>
-                    <Button sx={{ color: 'white'}}>Login</Button>
+                <Typography>{Cookies.get('usuario')}</Typography>
+                <Link href='/' passHref component={ NextLink }>
+                    <Button sx={{ color: 'white'}}>Logout</Button>
                 </Link>
             </Box>
         </Toolbar>
