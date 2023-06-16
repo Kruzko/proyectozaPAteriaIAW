@@ -16,31 +16,31 @@ interface IRespuestaRegister {
     isActive: boolean;
     roles: String[]
 }
-type ClientData = {
+type EmpleadoData = {
     nif: string,
     nombre: string,
     apellido: string,
     telefono: string
 };
-const createCliente = () => {
+const createEmpleado = () => {
     const router = useRouter();
     //hook
     // const { registerClient } = ZapateriaApi(`/clientes`);
 
-    const { register, handleSubmit, formState: { errors } } = useForm<ClientData>();
+    const { register, handleSubmit, formState: { errors } } = useForm<EmpleadoData>();
 
     const [showError, setShowError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
     //manejador del evento submit del formulario
-    const newClient = async (InputData: ClientData) => {
+    const newEmpleado = async (InputData: EmpleadoData) => {
 
         console.log(InputData);
         setShowError(false);
         const { nif, nombre, apellido, telefono } = InputData;
 
 
-        const { hasError, message } = await ZapateriaApi.post(`/clientes`, InputData)
+        const { hasError, message } = await ZapateriaApi.post(`/empleados`, InputData)
         console.log(message);
         if (hasError) {
             setShowError(true);
@@ -55,8 +55,8 @@ const createCliente = () => {
     }
 
     return (
-        <MainLayouts title={'Crear Cliente'}>
-            <form onSubmit={handleSubmit(newClient)} noValidate>
+        <MainLayouts title={'Crear Empleado'}>
+            <form onSubmit={handleSubmit(newEmpleado)} noValidate>
                 <Box sx={{ width: 350, padding: '10px 20px' }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -119,4 +119,4 @@ const createCliente = () => {
     )
 }
 
-export default createCliente
+export default createEmpleado

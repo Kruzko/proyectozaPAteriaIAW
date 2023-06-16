@@ -46,7 +46,9 @@ export const PedidosList:FC<Props> = ({pedidos}) => {
   return (
             <Grid container sx={{ width: '100%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >
-                <AddBoxIcon sx={{  color: 'green', fontSize:40 }} />
+              <a href='/formulario/createPedido'>
+                <AddBoxIcon sx={{  color: 'green', fontSize:40 }}/>
+              </a>
               </Box>
                
                <Grid item xs={12} 

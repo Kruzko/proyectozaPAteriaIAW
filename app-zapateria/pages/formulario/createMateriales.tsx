@@ -9,38 +9,34 @@ import { ZapateriaApi } from '@/api';
 
 interface IRespuestaRegister {
     token: string;
-    nif: string;
-    nombre: string;
-    apellido: string;
-    telefono: string;
+    cod: string;
+    descripcion: string;
     isActive: boolean;
     roles: String[]
 }
-type ClientData = {
-    nif: string,
-    nombre: string,
-    apellido: string,
-    telefono: string
+type MaterialesData = {
+    cod: string,
+    descripcion: string,
 };
-const createCliente = () => {
+const createMateriales = () => {
     const router = useRouter();
     //hook
     // const { registerClient } = ZapateriaApi(`/clientes`);
 
-    const { register, handleSubmit, formState: { errors } } = useForm<ClientData>();
+    const { register, handleSubmit, formState: { errors } } = useForm<MaterialesData>();
 
     const [showError, setShowError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
     //manejador del evento submit del formulario
-    const newClient = async (InputData: ClientData) => {
+    const newMateriales = async (InputData: MaterialesData) => {
 
         console.log(InputData);
         setShowError(false);
-        const { nif, nombre, apellido, telefono } = InputData;
+        const { cod, descripcion } = InputData;
 
 
-        const { hasError, message } = await ZapateriaApi.post(`/clientes`, InputData)
+        const { hasError, message } = await ZapateriaApi.post(`/materiales`, InputData)
         console.log(message);
         if (hasError) {
             setShowError(true);
@@ -55,8 +51,8 @@ const createCliente = () => {
     }
 
     return (
-        <MainLayouts title={'Crear Cliente'}>
-            <form onSubmit={handleSubmit(newClient)} noValidate>
+        <MainLayouts title={'Crear Materiales'}>
+            <form onSubmit={handleSubmit(newMateriales)} noValidate>
                 <Box sx={{ width: 350, padding: '10px 20px' }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -71,40 +67,21 @@ const createCliente = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                {...register('nif', {
-                                    required: 'Nif Obligatorio'
+                                {...register('cod', {
+                                    required: 'codigo obligatorio',
                                 })}
-                                error={!!errors.nif}
-                                helperText={errors.nif?.message}
-                                label="Nif" variant='filled' fullWidth />
+                                error={!!errors.cod}
+                                helperText={errors.cod?.message}
+                                label="Codigo" variant='filled' fullWidth />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                {...register('nombre', {
-                                    required: 'Nombre obligatorio',
+                                {...register('descripcion', {
+                                    required: 'Descripcion requerido',
                                 })}
-                                error={!!errors.nombre}
-                                helperText={errors.nombre?.message}
-                                label="Nombre" variant='filled' fullWidth />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                {...register('apellido', {
-                                    required: 'Apellido requerido',
-                                })}
-                                error={!!errors.apellido}
-                                helperText={errors.apellido?.message}
-                                label="Apellido" variant='filled' fullWidth />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                {...register('telefono', {
-                                    required: 'numero de telefono'
-                                })}
-                                error={!!errors.telefono}
-                                type='string'
-                                helperText={errors.telefono?.message}
-                                label="Telefono" variant='filled' fullWidth />
+                                error={!!errors.descripcion}
+                                helperText={errors.descripcion?.message}
+                                label="Descripcion" variant='filled' fullWidth />
                         </Grid>
                         <Grid item xs={12}>
                             <Button
@@ -119,4 +96,4 @@ const createCliente = () => {
     )
 }
 
-export default createCliente
+export default createMateriales

@@ -47,7 +47,9 @@ export const UserList:FC<Props> = ({usuarios}) => {
   return (
             <Grid container sx={{ width: '100%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >
-                <AddBoxIcon sx={{  color: 'green', fontSize:40 }} />
+              <a href='/auth/register'>
+                <AddBoxIcon sx={{  color: 'green', fontSize:40 }}/>
+              </a>
               </Box>
                
                <Grid item xs={12} 

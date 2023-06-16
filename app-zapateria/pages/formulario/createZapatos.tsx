@@ -9,38 +9,40 @@ import { ZapateriaApi } from '@/api';
 
 interface IRespuestaRegister {
     token: string;
-    nif: string;
+    cod: string;
+    tipo: string;
     nombre: string;
-    apellido: string;
-    telefono: string;
+    precio: string;
+    thumbnailUrl: string;
     isActive: boolean;
     roles: String[]
 }
-type ClientData = {
-    nif: string,
-    nombre: string,
-    apellido: string,
-    telefono: string
+type ZapatoData = {
+    cod: string;
+    tipo: string;
+    nombre: string;
+    precio: string;
+    thumbnailUrl: string;
 };
-const createCliente = () => {
+const createZapato = () => {
     const router = useRouter();
     //hook
     // const { registerClient } = ZapateriaApi(`/clientes`);
 
-    const { register, handleSubmit, formState: { errors } } = useForm<ClientData>();
+    const { register, handleSubmit, formState: { errors } } = useForm<ZapatoData>();
 
     const [showError, setShowError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
     //manejador del evento submit del formulario
-    const newClient = async (InputData: ClientData) => {
+    const newZapato = async (InputData: ZapatoData) => {
 
         console.log(InputData);
         setShowError(false);
-        const { nif, nombre, apellido, telefono } = InputData;
+        const { cod, tipo, nombre, precio, thumbnailUrl } = InputData;
 
 
-        const { hasError, message } = await ZapateriaApi.post(`/clientes`, InputData)
+        const { hasError, message } = await ZapateriaApi.post(`/zapatos`, InputData)
         console.log(message);
         if (hasError) {
             setShowError(true);
@@ -55,8 +57,8 @@ const createCliente = () => {
     }
 
     return (
-        <MainLayouts title={'Crear Cliente'}>
-            <form onSubmit={handleSubmit(newClient)} noValidate>
+        <MainLayouts title={'Crear Zapatos'}>
+            <form onSubmit={handleSubmit(newZapato)} noValidate>
                 <Box sx={{ width: 350, padding: '10px 20px' }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -71,12 +73,12 @@ const createCliente = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                {...register('nif', {
-                                    required: 'Nif Obligatorio'
+                                {...register('cod', {
+                                    required: 'Codigo Obligatorio'
                                 })}
-                                error={!!errors.nif}
-                                helperText={errors.nif?.message}
-                                label="Nif" variant='filled' fullWidth />
+                                error={!!errors.cod}
+                                helperText={errors.cod?.message}
+                                label="Codigo" variant='filled' fullWidth />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
@@ -89,22 +91,32 @@ const createCliente = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                {...register('apellido', {
-                                    required: 'Apellido requerido',
+                                {...register('tipo', {
+                                    required: 'tipo de zapato requerido',
                                 })}
-                                error={!!errors.apellido}
-                                helperText={errors.apellido?.message}
-                                label="Apellido" variant='filled' fullWidth />
+                                error={!!errors.tipo}
+                                helperText={errors.tipo?.message}
+                                label="Tipo" variant='filled' fullWidth />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                {...register('telefono', {
-                                    required: 'numero de telefono'
+                                {...register('precio', {
+                                    required: 'precio del zapato'
                                 })}
-                                error={!!errors.telefono}
+                                error={!!errors.precio}
                                 type='string'
-                                helperText={errors.telefono?.message}
-                                label="Telefono" variant='filled' fullWidth />
+                                helperText={errors.precio?.message}
+                                label="Precio" variant='filled' fullWidth />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                {...register('thumbnailUrl', {
+                                    required: 'thumbnailUrl del zapato'
+                                })}
+                                error={!!errors.thumbnailUrl}
+                                type='string'
+                                helperText={errors.thumbnailUrl?.message}
+                                label="thumbnailUrl" variant='filled' fullWidth />
                         </Grid>
                         <Grid item xs={12}>
                             <Button
@@ -119,4 +131,4 @@ const createCliente = () => {
     )
 }
 
-export default createCliente
+export default createZapato
