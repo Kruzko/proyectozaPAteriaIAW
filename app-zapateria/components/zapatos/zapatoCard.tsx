@@ -28,7 +28,7 @@ export const ZapatoCard:FC<Props> = ({ zapato }) => {
         </Card>
         <Box sx= {{ marginTop: 1}} className='fadeIn'>
             <Typography fontWeight={700}>{zapato.nombre}</Typography>
-            <Typography fontWeight={500}>{zapato.precio}</Typography>
+            <Typography fontWeight={500}>{zapato.precio} €</Typography>
         </Box>
     </Grid>
   )

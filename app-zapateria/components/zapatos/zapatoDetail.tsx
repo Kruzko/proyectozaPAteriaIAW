@@ -49,7 +49,7 @@ export const ZapatoDetail:FC<Props> = ({zapato}) => {
             </Box>
           </Box>
           <Box  sx={{ display:'flex', flexDirection:'column', justifyContent:'space-around', alignItems:'center'}}>
-            <Typography variant='h3' component='h3'> { zapato.precio }€ </Typography>
+            <Typography variant='h3' component='h3'> { zapato.precio } € </Typography>
             <Button variant="contained" size='large' endIcon={<ShoppingCartIcon />}>
               Añadir a la cesta
             </Button>
