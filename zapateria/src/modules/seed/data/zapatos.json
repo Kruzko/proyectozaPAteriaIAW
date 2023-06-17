@@ -2,7 +2,7 @@
     {
         "cod":"13345678",
         "nombre":"tenis adidas",
-        "precio":"30€",
+        "precio":"30",
         "thumbnailUrl":"/imagenes_zapato/tenis.png",
         "tipo": "deportivo"
     },
@@ -10,7 +10,7 @@
     {
         "cod":"14345678",
         "nombre":"zuecos",
-        "precio":"40€",
+        "precio":"40",
         "thumbnailUrl":"/imagenes_zapato/zuecos.png",
         "tipo": "zueco"
     },
@@ -18,7 +18,7 @@
     {
         "cod":"15345678",
         "nombre":"alpargatas",
-        "precio":"10€",
+        "precio":"10",
         "thumbnailUrl":"/imagenes_zapato/alpargata.png",
         "tipo": "alpargata"
     },
@@ -26,7 +26,7 @@
     {
         "cod":"16345678",
         "nombre":"botas montaña",
-        "precio":"60€",
+        "precio":"60",
         "thumbnailUrl":"/imagenes_zapato/botas.png",
         "tipo": "botas"
     }
