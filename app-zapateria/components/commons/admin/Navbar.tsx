@@ -9,6 +9,10 @@ import { useEffect, useState } from 'react'
 
 export const NavBar = () => {
     let user: IUser;
+    const [ usuario, setUsusario ] = useState<string | undefined>('')
+    useEffect( () => {
+        setUsusario(Cookies.get('usuario'))
+    },[])
   return (
     <AppBar>
         <Toolbar>
@@ -51,7 +55,7 @@ export const NavBar = () => {
             </Box>
             <Box flex={1} />
             <Box>
-                <Typography>{Cookies.get('usuario')}</Typography>
+                <Typography>{ usuario }</Typography>
                 <Link href='/' passHref component={ NextLink }>
                     <Button sx={{ color: 'white'}}>Logout</Button>
                 </Link>

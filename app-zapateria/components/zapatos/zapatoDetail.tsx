@@ -12,10 +12,10 @@ interface Props {
     zapato: IZapato
 }
 
-const myLoader = ({src, width, quality}) =>{
-  // return `https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/`
-  return `${src}?s=${width}`
-}
+// const myLoader = ({src, width, quality}) =>{
+//   // return `https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/`
+//   return `${src}?s=${width}`
+// }
 export const ZapatoDetail:FC<Props> = ({zapato}) => {
     console.log(zapato);
     const [value, setValue] = React.useState('1');
@@ -35,7 +35,7 @@ export const ZapatoDetail:FC<Props> = ({zapato}) => {
                         sx={{ fontSize: '50px', textAlign: 'left', mb: '10px'}}
             > { zapato.tipo}</Typography>
             <Image
-              loader={myLoader}
+              //loader={myLoader}
               src= {zapato.thumbnailUrl}
               alt={zapato.nombre}
               width={300}

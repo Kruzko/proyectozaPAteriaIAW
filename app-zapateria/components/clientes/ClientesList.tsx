@@ -8,6 +8,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import { ZapateriaApi } from '@/api';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import Link from 'next/link';
 
 interface Props {
     clientes: ICliente[]
@@ -50,7 +51,7 @@ export const ClientesList:FC<Props> = ({clientes}) => {
   return (
             <Grid container sx={{ width: '100%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >
-                <a href='/formulario/createCliente'>
+                <Link href='/formulario/createCliente'>
                   <AddBoxIcon sx={{  color: 'green', fontSize:40 }}
                   // onClick={ async (event) => {
                   //   const nif = params.row.nif
@@ -58,7 +59,7 @@ export const ClientesList:FC<Props> = ({clientes}) => {
                   //   const { data } = await ZapateriaApi.post(`/clientes/${nif}`, clientes);
                   // }} 
                   />
-                </a>
+                </Link>
               </Box>
                
                <Grid item xs={12} 
@@ -73,9 +74,9 @@ export const ClientesList:FC<Props> = ({clientes}) => {
                   }}>
                  <DataGrid 
                     columns={colums} rows={rows}
-                    pageSize= {10}
+                    //pageSize= {10}
                     // onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-                    rowsPerPageOptions={[5, 10, 20]}
+                    //rowsPerPageOptions={[5, 10, 20]}
                     pagination
                     getRowId = {( row: ICliente ) => row.nif}
                   />

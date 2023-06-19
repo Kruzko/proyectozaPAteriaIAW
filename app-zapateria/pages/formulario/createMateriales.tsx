@@ -51,12 +51,12 @@ const createMateriales = () => {
     }
 
     return (
-        <MainLayouts title={'Crear Materiales'}>
+        <MainLayouts>
             <form onSubmit={handleSubmit(newMateriales)} noValidate>
                 <Box sx={{ width: 350, padding: '10px 20px' }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
-                            <Typography variant='h3' component='h1'>Crear Cliente</Typography>
+                            <Typography variant='h3' component='h1'>Crear Materiales</Typography>
                             <Chip
                                 label="No se reconoce usuario/contraseña"
                                 color="error"

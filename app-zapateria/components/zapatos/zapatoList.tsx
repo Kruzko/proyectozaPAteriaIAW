@@ -8,6 +8,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { ZapateriaApi } from '@/api';
+import Link from 'next/link';
 
 interface Props {
     zapatos: IZapato[]
@@ -49,9 +50,9 @@ export const ZapatosList:FC<Props> = ({zapatos}) => {
   return (
             <Grid container sx={{ width: '100%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >
-              <a href='/formulario/createZapatos'>
-                <AddBoxIcon sx={{  color: 'green', fontSize:40 }}/>
-              </a>
+                <Link href='/formulario/createZapatos'>
+                  <AddBoxIcon sx={{  color: 'green', fontSize:40 }}/>
+                </Link>
               </Box>
                
                <Grid item xs={12} 
@@ -66,9 +67,9 @@ export const ZapatosList:FC<Props> = ({zapatos}) => {
                   }}>
                  <DataGrid 
                     columns={colums} rows={rows}
-                    pageSize= {10}
-                    // onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-                    rowsPerPageOptions={[5, 10, 20]}
+                    // pageSize= {10}
+                    // // onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+                    // rowsPerPageOptions={[5, 10, 20]}
                     pagination
                     getRowId = {( row: IZapato ) => row.cod}
                   />
