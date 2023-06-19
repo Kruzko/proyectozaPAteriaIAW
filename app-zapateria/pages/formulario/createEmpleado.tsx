@@ -40,7 +40,9 @@ const createEmpleado = () => {
         const { nif, nombre, apellido, telefono } = InputData;
 
 
-        const { hasError, message } = await ZapateriaApi.post(`/empleados`, InputData)
+        const response = await ZapateriaApi.post(`/empleados`, InputData)
+        const hasError = response.data.hasError;
+        const message = response.data.message;
         console.log(message);
         if (hasError) {
             setShowError(true);

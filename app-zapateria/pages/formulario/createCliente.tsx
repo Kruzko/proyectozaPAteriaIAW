@@ -40,7 +40,9 @@ const createCliente = () => {
         const { nif, nombre, apellido, telefono } = InputData;
 
 
-        const { hasError, message } = await ZapateriaApi.post(`/clientes`, InputData)
+        const response = await ZapateriaApi.post(`/clientes`, InputData)
+        const hasError = response.data.hasError;
+        const message = response.data.message;
         console.log(message);
         if (hasError) {
             setShowError(true);
@@ -55,7 +57,7 @@ const createCliente = () => {
     }
 
     return (
-        <MainLayouts title={'Crear Cliente'}>
+        <MainLayouts>
             <form onSubmit={handleSubmit(newClient)} noValidate>
                 <Box sx={{ width: 350, padding: '10px 20px' }}>
                     <Grid container spacing={2}>

@@ -16,12 +16,11 @@ const ZapatoPage = () => {
     const cod = router.query;
     // renombrando la variable zapatos por zapato
     const { zapatos:zapato, isLoading } = useZapatos(`/zapatos/${cod.id}`);
-    console.log(cod)
+    console.log(zapato)
   return (
     <PublicLayouts> 
        <h2>detalle del zapato {`${router.query.id}`} </h2>
         <ZapatoDetail zapato={zapato} />
-        
     </PublicLayouts>
     
   )

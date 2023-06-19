@@ -20,8 +20,6 @@ const ZapatoPage = () => {
   return (
     <PublicLayouts> 
        <h2>detalle del zapato {`${router.query.id}`} </h2>
-        <ZapatoDetail zapato={zapato} />
-        
     </PublicLayouts>
     
   )

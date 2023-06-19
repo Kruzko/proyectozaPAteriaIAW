@@ -42,7 +42,9 @@ const createZapato = () => {
         const { cod, tipo, nombre, precio, thumbnailUrl } = InputData;
 
 
-        const { hasError, message } = await ZapateriaApi.post(`/zapatos`, InputData)
+        const response = await ZapateriaApi.post(`/zapatos`, InputData)
+        const hasError = response.data.hasError;
+        const message = response.data.message;
         console.log(message);
         if (hasError) {
             setShowError(true);
