@@ -22,7 +22,7 @@ type EmpleadoData = {
     apellido: string,
     telefono: string
 };
-const createEmpleado = () => {
+const CreateEmpleado = () => {
     const router = useRouter();
     //hook
     // const { registerClient } = ZapateriaApi(`/clientes`);
@@ -121,4 +121,4 @@ const createEmpleado = () => {
     )
 }
 
-export default createEmpleado
+export default CreateEmpleado

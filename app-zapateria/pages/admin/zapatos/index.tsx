@@ -12,10 +12,11 @@ const ZapatosIndexTabla = () => {
   return (
     <MainLayouts>
         <h2>Zapatos</h2>
-        <ZapatosList zapatos={zapatos} />
+
+      
         {
-          (isLoading)
-          ? <ZapatosList zapatos = {zapatos} />
+          (zapatos != undefined)?
+          ( <ZapatosList zapatos = {zapatos} />)
           : ''
         }
     </MainLayouts>

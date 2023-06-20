@@ -24,7 +24,7 @@ type ZapatoData = {
     precio: string;
     thumbnailUrl: string;
 };
-const createZapato = () => {
+const CreateZapato = () => {
     const router = useRouter();
     //hook
     // const { registerClient } = ZapateriaApi(`/clientes`);
@@ -133,4 +133,4 @@ const createZapato = () => {
     )
 }
 
-export default createZapato
+export default CreateZapato

@@ -6,6 +6,7 @@ import { IZapato } from '../../interfaces/zapato/IZapato';
 interface Props {
     zapatos: IZapato[]
 }
+
 export const ZapatosCardList:FC<Props> = ({ zapatos }) => {
   return (
     <Grid container spacing={4}>

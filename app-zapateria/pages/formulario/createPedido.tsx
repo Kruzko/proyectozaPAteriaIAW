@@ -18,7 +18,7 @@ type PedidoData = {
     cod: string,
     fecha: string,
 };
-const createPedido = () => {
+const CreatePedido = () => {
     const router = useRouter();
     //hook
     // const { registerClient } = ZapateriaApi(`/clientes`);
@@ -98,4 +98,4 @@ const createPedido = () => {
     )
 }
 
-export default createPedido
+export default CreatePedido

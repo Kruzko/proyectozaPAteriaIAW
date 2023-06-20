@@ -18,7 +18,7 @@ type MaterialesData = {
     cod: string,
     descripcion: string,
 };
-const createMateriales = () => {
+const CreateMateriales = () => {
     const router = useRouter();
     //hook
     // const { registerClient } = ZapateriaApi(`/clientes`);
@@ -98,4 +98,4 @@ const createMateriales = () => {
     )
 }
 
-export default createMateriales
+export default CreateMateriales

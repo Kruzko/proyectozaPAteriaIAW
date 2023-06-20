@@ -22,7 +22,7 @@ type ClientData = {
     apellido: string,
     telefono: string
 };
-const createCliente = () => {
+const CreateCliente = () => {
     const router = useRouter();
     //hook
     // const { registerClient } = ZapateriaApi(`/clientes`);
@@ -121,4 +121,4 @@ const createCliente = () => {
     )
 }
 
-export default createCliente
+export default CreateCliente
