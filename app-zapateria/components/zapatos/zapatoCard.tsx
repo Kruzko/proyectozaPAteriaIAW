@@ -6,7 +6,7 @@ import NextLink  from 'next/link';
 interface Props {
     zapato: IZapato;
 }
-export const ZapatoCard:FC<Props> = ({ zapato }) => {
+ const ZapatoCard:FC<Props> = ({ zapato }) => {
   return (
     <Grid item  xs= {6} sm={3}>
         <Card sx={{ width: '90%' }}>
@@ -33,3 +33,5 @@ export const ZapatoCard:FC<Props> = ({ zapato }) => {
     </Grid>
   )
 }
+
+export default ZapatoCard
