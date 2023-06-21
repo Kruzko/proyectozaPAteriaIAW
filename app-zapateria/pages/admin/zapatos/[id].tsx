@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { FC } from "react"
 import { MainLayouts, PublicLayouts } from "layouts";
 import { useZapatos } from 'hooks/useZapato';
-import { ZapatoDetail } from 'components/zapatos/ZapatoDetail';
+import ZapatoDetail  from 'components/zapatos/ZapatoDetail';
 import { IZapato } from 'interfaces/zapato/IZapato';
 
 interface Props {

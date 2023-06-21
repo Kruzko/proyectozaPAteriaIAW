@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { FC } from "react"
 import { MainLayouts, PublicLayouts } from "../../layouts";
 import { useZapato } from '../../hooks/useZapato';
-import { ZapatoDetail } from '../../components/zapatos/ZapatoDetail';
+import  ZapatoDetail  from '../../components/zapatos/ZapatoDetail';
 
 const ZapatoPage = () => {
     const router = useRouter();

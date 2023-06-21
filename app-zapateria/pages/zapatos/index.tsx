@@ -1,6 +1,6 @@
 import React from 'react'
 import { MainLayouts, PublicLayouts } from '../../layouts'
-import { ZapatosCardList} from '@/components/zapatos'
+import  ZapatosCardList from '@/components/zapatos/ZapatoCardList'
 import { useZapatos } from '@/hooks/useZapato';
 import { Mundo } from '../../components';
 

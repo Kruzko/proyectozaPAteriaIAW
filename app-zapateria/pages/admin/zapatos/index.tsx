@@ -1,7 +1,7 @@
 import React from 'react'
 import { MainLayouts } from 'layouts'
-import { ZapatosCardList, ZapatosList} from '@/components/zapatos'
 import { useZapatos } from '@/hooks/useZapato';
+import ZapatosList from '@/components/zapatos/ZapatoList';
 
 
 const ZapatosIndexTabla = () => {
