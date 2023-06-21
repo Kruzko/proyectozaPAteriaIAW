@@ -7,7 +7,7 @@ interface Props {
     zapatos: IZapato[]
 }
 
-export const ZapatosCardList:FC<Props> = ({ zapatos }) => {
+ const ZapatosCardList:FC<Props> = ({ zapatos }) => {
   return (
     <Grid container spacing={4}>
       {
@@ -22,3 +22,4 @@ export const ZapatosCardList:FC<Props> = ({ zapatos }) => {
     </Grid>
   )
 }
+export default ZapatosCardList

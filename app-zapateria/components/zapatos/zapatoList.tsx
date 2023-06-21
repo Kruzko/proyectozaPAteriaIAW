@@ -13,7 +13,7 @@ import Link from 'next/link';
 interface Props {
     zapatos: IZapato[]
 }
-export const ZapatosList:FC<Props> = ({zapatos}) => {
+ const ZapatosList:FC<Props> = ({zapatos}) => {
   
   const colums: GridColDef[] = [
         { field: 'nombre', headerName: 'Nombre', width: 130, editable:true},
@@ -77,3 +77,4 @@ export const ZapatosList:FC<Props> = ({zapatos}) => {
             </Grid>
   )
 }
+export default ZapatosList

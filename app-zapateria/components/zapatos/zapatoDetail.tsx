@@ -17,7 +17,7 @@ interface Props {
 //   // return `https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/`
 //   return `${src}?s=${width}`
 // }
-export const ZapatoDetail:FC<Props> = ({zapato}) => {
+ const ZapatoDetail:FC<Props> = ({zapato}) => {
     console.log(zapato);
     const [value, setValue] = React.useState('1');
 
@@ -91,3 +91,4 @@ export const ZapatoDetail:FC<Props> = ({zapato}) => {
 
   )
 }
+export default ZapatoDetail
