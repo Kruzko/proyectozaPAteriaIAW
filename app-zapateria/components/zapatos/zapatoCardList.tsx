@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { FC } from "react"
 import { IZapato } from '../../interfaces/zapato/IZapato';
-import ZapatoCard from './ZapatoCard';
+import ZapatoCard from "./ZapatoCard";
 
 interface Props {
     zapatos: IZapato[]
